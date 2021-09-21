@@ -32,9 +32,9 @@ namespace Desktop.Forms {
 			this.cntParametricSplit = new System.Windows.Forms.SplitContainer();
 			this.lstCategories = new System.Windows.Forms.ListBox();
 			this.lblCategories = new System.Windows.Forms.Label();
-			this.grdResults = new System.Windows.Forms.DataGridView();
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
+			this.grdResults = new System.Windows.Forms.DataGridView();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
 			this.ctnMainSplit.Panel2.SuspendLayout();
@@ -142,20 +142,6 @@ namespace Desktop.Forms {
 			this.lblCategories.Text = "Categories";
 			this.lblCategories.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// grdResults
-			// 
-			this.grdResults.AllowUserToAddRows = false;
-			this.grdResults.AllowUserToDeleteRows = false;
-			this.grdResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-						| System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.grdResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.grdResults.Location = new System.Drawing.Point(3, 3);
-			this.grdResults.Name = "grdResults";
-			this.grdResults.ReadOnly = true;
-			this.grdResults.Size = new System.Drawing.Size(534, 489);
-			this.grdResults.TabIndex = 0;
-			// 
 			// lstSubCategories
 			// 
 			this.lstSubCategories.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -178,6 +164,22 @@ namespace Desktop.Forms {
 			this.lblSubCategories.TabIndex = 2;
 			this.lblSubCategories.Text = "Sub-Categories";
 			this.lblSubCategories.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// grdResults
+			// 
+			this.grdResults.AllowUserToAddRows = false;
+			this.grdResults.AllowUserToDeleteRows = false;
+			this.grdResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.grdResults.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.grdResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grdResults.Location = new System.Drawing.Point(3, 3);
+			this.grdResults.Name = "grdResults";
+			this.grdResults.ReadOnly = true;
+			this.grdResults.RowHeadersVisible = false;
+			this.grdResults.Size = new System.Drawing.Size(534, 489);
+			this.grdResults.TabIndex = 0;
 			// 
 			// MainForm
 			// 

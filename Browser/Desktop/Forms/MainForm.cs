@@ -38,6 +38,42 @@ namespace Desktop.Forms {
 			// Setup the components table data source.
 			//grdResults.AutoGenerateColumns = false;
 			grdResults.DataSource = partsComponents;
+			SetupGridColumns();
+		}
+
+		/// <summary>
+		/// Sets up all of the grid columns and their styles.
+		/// </summary>
+		private void SetupGridColumns() {
+			// ID
+			grdResults.Columns["ID"].DisplayIndex = 0;
+			grdResults.Columns["ID"].Width = 35;
+
+			// Name
+			grdResults.Columns["Name"].DisplayIndex = 1;
+			grdResults.Columns["Name"].Width = 100;
+
+			// Quantity
+			grdResults.Columns["Quantity"].DisplayIndex = 2;
+			grdResults.Columns["Quantity"].Width = 45;
+			grdResults.Columns["Quantity"].HeaderText = "Qnt";
+
+			// Description
+			grdResults.Columns["Description"].DisplayIndex = 3;
+			grdResults.Columns["Description"].Width = 255;
+
+			// Package
+			grdResults.Columns["Package"].DisplayIndex = 4;
+			grdResults.Columns["Package"].Width = 80;
+
+			// Category
+			grdResults.Columns["Category"].DisplayIndex = 5;
+			grdResults.Columns["Category"].Width = 115;
+
+			// Sub-Category
+			grdResults.Columns["SubCategory"].DisplayIndex = 6;
+			grdResults.Columns["SubCategory"].Width = 115;
+			grdResults.Columns["SubCategory"].HeaderText = "Sub-Category";
 		}
 
 		/// <summary>
