@@ -166,6 +166,7 @@ namespace Desktop.Forms {
 			this.lstSubCategories.Name = "lstSubCategories";
 			this.lstSubCategories.Size = new System.Drawing.Size(216, 160);
 			this.lstSubCategories.TabIndex = 3;
+			this.lstSubCategories.SelectedIndexChanged += new System.EventHandler(this.lstSubCategories_SelectedIndexChanged);
 			// 
 			// lblSubCategories
 			// 

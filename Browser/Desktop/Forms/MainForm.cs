@@ -14,6 +14,7 @@ namespace Desktop.Forms {
 	public partial class MainForm : Form {
 		private BindingList<Category> categories;
 		private BindingList<SubCategory> subCategories;
+		private BindingList<PartsCatalog.Models.Component> partsComponents;
 
 		/// <summary>
 		/// Initializes the form and its components.
@@ -21,6 +22,7 @@ namespace Desktop.Forms {
 		public MainForm() {
 			categories = new BindingList<Category>();
 			subCategories = new BindingList<SubCategory>();
+			partsComponents = new BindingList<PartsCatalog.Models.Component>();
 			InitializeComponent();
 
 			// Setup the categories list data source.
@@ -32,6 +34,10 @@ namespace Desktop.Forms {
 			lstSubCategories.DataSource = subCategories;
 			lstSubCategories.DisplayMember = "Name";
 			lstSubCategories.ValueMember = "ID";
+
+			// Setup the components table data source.
+			//grdResults.AutoGenerateColumns = false;
+			grdResults.DataSource = partsComponents;
 		}
 
 		/// <summary>
@@ -55,6 +61,24 @@ namespace Desktop.Forms {
 			}
 		}
 
+		/// <summary>
+		/// Populates the components table view with data from a specific criteria.
+		/// </summary>
+		/// <param name="criteria">Object that will be used as criteria for fetching the
+		/// components via the <see cref="PartsCatalog.Models.List<T>"/> call.</param>
+		/// <param name="queryParam">URL parameter query name.</param>
+		public void PopulateComponentsGrid<T>(RemoteObject<T> criteria, string queryParam)
+				where T : RemoteObject<T>, new() {
+			if (criteria == null)
+				return;
+
+			new PartsCatalog.Models.Component().List<T>(partsComponents, queryParam, criteria);
+		}
+
+		/******************
+		 * Event Handlers *
+		 ******************/
+
 		private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
 			Application.Exit();
 		}
@@ -65,6 +89,13 @@ namespace Desktop.Forms {
 
 		private void lstCategories_SelectedIndexChanged(object sender, EventArgs e) {
 			PopulateSubCategoriesList((Category)lstCategories.SelectedItem);
+			//PopulateComponentsGrid<Category>((Category)lstCategories.SelectedItem,
+			//	"category");
+		}
+
+		private void lstSubCategories_SelectedIndexChanged(object sender, EventArgs e) {
+			PopulateComponentsGrid<SubCategory>((SubCategory)lstSubCategories.SelectedItem,
+				"subcategory");
 		}
 	}
 }
