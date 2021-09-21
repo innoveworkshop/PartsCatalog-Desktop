@@ -129,6 +129,7 @@ namespace Desktop.Forms {
 			this.lstCategories.Name = "lstCategories";
 			this.lstCategories.Size = new System.Drawing.Size(216, 277);
 			this.lstCategories.TabIndex = 1;
+			this.lstCategories.SelectedIndexChanged += new System.EventHandler(this.lstCategories_SelectedIndexChanged);
 			// 
 			// lblCategories
 			// 
@@ -189,6 +190,7 @@ namespace Desktop.Forms {
 			this.Margin = new System.Windows.Forms.Padding(2);
 			this.Name = "MainForm";
 			this.Text = "PartsCatalog Browser";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.stpMenu.ResumeLayout(false);
 			this.stpMenu.PerformLayout();
 			this.ctnMainSplit.Panel1.ResumeLayout(false);
