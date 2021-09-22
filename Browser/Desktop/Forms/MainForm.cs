@@ -135,7 +135,7 @@ namespace Desktop.Forms {
 				"subcategory");
 		}
 
-		private void grdResults_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+		private void grdResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
 			ComponentForm form = new ComponentForm(
 				(PartsCatalog.Models.Component)grdResults.CurrentRow.DataBoundItem);
 			form.Show();
