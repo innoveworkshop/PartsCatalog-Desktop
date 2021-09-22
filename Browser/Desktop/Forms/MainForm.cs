@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using PartsCatalog.Models;
-using PartsCatalog.DesktopForms;
+using PartsCatalog.DesktopForms.Views;
 
 namespace Desktop.Forms {
 	/// <summary>
