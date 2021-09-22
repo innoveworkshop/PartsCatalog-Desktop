@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using PartsCatalog.Models;
+using PartsCatalog.DesktopForms;
 
 namespace Desktop.Forms {
 	/// <summary>
@@ -132,6 +133,12 @@ namespace Desktop.Forms {
 		private void lstSubCategories_SelectedIndexChanged(object sender, EventArgs e) {
 			PopulateComponentsGrid<SubCategory>((SubCategory)lstSubCategories.SelectedItem,
 				"subcategory");
+		}
+
+		private void grdResults_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+			ComponentForm form = new ComponentForm(
+				(PartsCatalog.Models.Component)grdResults.CurrentRow.DataBoundItem);
+			form.Show();
 		}
 	}
 }

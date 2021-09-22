@@ -178,8 +178,10 @@ namespace Desktop.Forms {
 			this.grdResults.Name = "grdResults";
 			this.grdResults.ReadOnly = true;
 			this.grdResults.RowHeadersVisible = false;
+			this.grdResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.grdResults.Size = new System.Drawing.Size(534, 489);
 			this.grdResults.TabIndex = 0;
+			this.grdResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResults_CellContentClick);
 			// 
 			// MainForm
 			// 
