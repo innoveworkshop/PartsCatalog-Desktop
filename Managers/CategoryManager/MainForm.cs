@@ -211,6 +211,14 @@ namespace CategoryManager {
 		/// </summary>
 		/// <param name="category">Category that will be deleted.</param>
 		public void DeleteCategory(Category category) {
+			DialogResult dialog = MessageBox.Show("Are you sure you want to delete " +
+				"the category '" + category.Name + "' and all of its sub-categories?",
+				"Delete category?", MessageBoxButtons.YesNo);
+
+			// Ignore if the user was mistaken.
+			if (dialog == DialogResult.No)
+				return;
+
 			category.Delete();
 			PopulateCategoryGroup(null);
 			PopulateCategoriesList();
@@ -221,8 +229,15 @@ namespace CategoryManager {
 		/// </summary>
 		/// <param name="subCategory">Sub-category that will be deleted.</param>
 		public void DeleteSubCategory(SubCategory subCategory) {
-			Category parent = subCategory.Parent;
+			DialogResult dialog = MessageBox.Show("Are you sure you want to delete " +
+				"the sub-category '" + subCategory.Name + "'?", "Delete sub-category?",
+				MessageBoxButtons.YesNo);
 
+			// Ignore if the user was mistaken.
+			if (dialog == DialogResult.No)
+				return;
+
+			Category parent = subCategory.Parent;
 			subCategory.Delete();
 			PopulateCategoryGroup(parent);
 			PopulateCategoriesList(parent);
