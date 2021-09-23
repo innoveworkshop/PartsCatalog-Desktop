@@ -136,6 +136,7 @@ namespace CategoryManager {
 			this.btnCategoryRename.TabIndex = 3;
 			this.btnCategoryRename.Text = "Rename";
 			this.btnCategoryRename.UseVisualStyleBackColor = true;
+			this.btnCategoryRename.Click += new System.EventHandler(this.btnCategoryRename_Click);
 			// 
 			// btnCategoryRemove
 			// 
@@ -146,6 +147,7 @@ namespace CategoryManager {
 			this.btnCategoryRemove.TabIndex = 4;
 			this.btnCategoryRemove.Text = "Remove";
 			this.btnCategoryRemove.UseVisualStyleBackColor = true;
+			this.btnCategoryRemove.Click += new System.EventHandler(this.btnCategoryRemove_Click);
 			// 
 			// btnCategoryAdd
 			// 
@@ -155,6 +157,7 @@ namespace CategoryManager {
 			this.btnCategoryAdd.TabIndex = 5;
 			this.btnCategoryAdd.Text = "Add";
 			this.btnCategoryAdd.UseVisualStyleBackColor = true;
+			this.btnCategoryAdd.Click += new System.EventHandler(this.btnCategoryAdd_Click);
 			// 
 			// grpSubCategory
 			// 
@@ -180,6 +183,7 @@ namespace CategoryManager {
 			this.btnSubCategoryAdd.TabIndex = 5;
 			this.btnSubCategoryAdd.Text = "Add";
 			this.btnSubCategoryAdd.UseVisualStyleBackColor = true;
+			this.btnSubCategoryAdd.Click += new System.EventHandler(this.btnSubCategoryAdd_Click);
 			// 
 			// btnSubCategoryRemove
 			// 
@@ -190,6 +194,7 @@ namespace CategoryManager {
 			this.btnSubCategoryRemove.TabIndex = 4;
 			this.btnSubCategoryRemove.Text = "Remove";
 			this.btnSubCategoryRemove.UseVisualStyleBackColor = true;
+			this.btnSubCategoryRemove.Click += new System.EventHandler(this.btnSubCategoryRemove_Click);
 			// 
 			// btnSubCategoryRename
 			// 
@@ -199,6 +204,7 @@ namespace CategoryManager {
 			this.btnSubCategoryRename.TabIndex = 3;
 			this.btnSubCategoryRename.Text = "Rename";
 			this.btnSubCategoryRename.UseVisualStyleBackColor = true;
+			this.btnSubCategoryRename.Click += new System.EventHandler(this.btnSubCategoryRename_Click);
 			// 
 			// lblSubCategoryID
 			// 
