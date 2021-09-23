@@ -193,7 +193,6 @@ namespace CategoryManager {
 		/// <param name="category">Category that will be renamed.</param>
 		public void RenameCategory(Category category) {
 			category.Save();
-			PopulateCategoriesList();
 			PopulateCategoriesList(category);
 		}
 
