@@ -159,6 +159,8 @@ namespace ProjectManager {
 		/// </summary>
 		/// <param name="item">BOM item that will be edited.</param>
 		public void PopulateBOMItemGroup(BOMItem item) {
+			txtComponentValue.DataBindings.Clear();
+			chkComponentPopulate.DataBindings.Clear();
 			refDesignators.Clear();
 			PopulateComponent(null);
 
@@ -167,12 +169,18 @@ namespace ProjectManager {
 				// Disable the controls that are not useful.
 				btnItemRemove.Enabled = false;
 				btnItemSave.Enabled = false;
+				txtComponentValue.Text = "";
+				chkComponentPopulate.Checked = true;
 
 				return;
 			}
 
 			// Populate the controls.
-			PopulateComponent(item.Part); 
+			PopulateComponent(item.Part);
+			txtComponentValue.DataBindings.Add("Text", item, "Value", true,
+				DataSourceUpdateMode.OnPropertyChanged);
+			chkComponentPopulate.DataBindings.Add("Checked", item, "Populate",
+				true, DataSourceUpdateMode.OnPropertyChanged);
 			foreach (string refDes in item.RefDes) {
 				refDesignators.Add(refDes);
 			}

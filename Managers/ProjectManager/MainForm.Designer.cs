@@ -52,6 +52,9 @@ namespace ProjectManager {
 			this.btnItemAdd = new System.Windows.Forms.Button();
 			this.lstBOMItems = new System.Windows.Forms.ListBox();
 			this.btnRefDesClear = new System.Windows.Forms.Button();
+			this.label5 = new System.Windows.Forms.Label();
+			this.txtComponentValue = new System.Windows.Forms.TextBox();
+			this.chkComponentPopulate = new System.Windows.Forms.CheckBox();
 			this.grpProject.SuspendLayout();
 			this.grpComponents.SuspendLayout();
 			this.SuspendLayout();
@@ -188,6 +191,9 @@ namespace ProjectManager {
 			this.grpComponents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
+			this.grpComponents.Controls.Add(this.chkComponentPopulate);
+			this.grpComponents.Controls.Add(this.txtComponentValue);
+			this.grpComponents.Controls.Add(this.label5);
 			this.grpComponents.Controls.Add(this.btnRefDesClear);
 			this.grpComponents.Controls.Add(this.btnSelectComponent);
 			this.grpComponents.Controls.Add(this.btnRefDesRemove);
@@ -223,7 +229,7 @@ namespace ProjectManager {
 			// btnRefDesRemove
 			// 
 			this.btnRefDesRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnRefDesRemove.Location = new System.Drawing.Point(332, 191);
+			this.btnRefDesRemove.Location = new System.Drawing.Point(332, 230);
 			this.btnRefDesRemove.Name = "btnRefDesRemove";
 			this.btnRefDesRemove.Size = new System.Drawing.Size(90, 23);
 			this.btnRefDesRemove.TabIndex = 23;
@@ -234,7 +240,7 @@ namespace ProjectManager {
 			// btnRefDesRename
 			// 
 			this.btnRefDesRename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnRefDesRename.Location = new System.Drawing.Point(332, 162);
+			this.btnRefDesRename.Location = new System.Drawing.Point(332, 201);
 			this.btnRefDesRename.Name = "btnRefDesRename";
 			this.btnRefDesRename.Size = new System.Drawing.Size(90, 23);
 			this.btnRefDesRename.TabIndex = 22;
@@ -245,7 +251,7 @@ namespace ProjectManager {
 			// btnRefDesAdd
 			// 
 			this.btnRefDesAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnRefDesAdd.Location = new System.Drawing.Point(332, 133);
+			this.btnRefDesAdd.Location = new System.Drawing.Point(332, 172);
 			this.btnRefDesAdd.Name = "btnRefDesAdd";
 			this.btnRefDesAdd.Size = new System.Drawing.Size(90, 23);
 			this.btnRefDesAdd.TabIndex = 21;
@@ -267,7 +273,7 @@ namespace ProjectManager {
 			// txtRefDes
 			// 
 			this.txtRefDes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtRefDes.Location = new System.Drawing.Point(332, 107);
+			this.txtRefDes.Location = new System.Drawing.Point(332, 146);
 			this.txtRefDes.Name = "txtRefDes";
 			this.txtRefDes.Size = new System.Drawing.Size(90, 20);
 			this.txtRefDes.TabIndex = 19;
@@ -276,9 +282,9 @@ namespace ProjectManager {
 			// 
 			this.lstRefDes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.lstRefDes.FormattingEnabled = true;
-			this.lstRefDes.Location = new System.Drawing.Point(247, 107);
+			this.lstRefDes.Location = new System.Drawing.Point(247, 146);
 			this.lstRefDes.Name = "lstRefDes";
-			this.lstRefDes.Size = new System.Drawing.Size(79, 277);
+			this.lstRefDes.Size = new System.Drawing.Size(79, 238);
 			this.lstRefDes.Sorted = true;
 			this.lstRefDes.TabIndex = 18;
 			this.lstRefDes.SelectedIndexChanged += new System.EventHandler(this.lstRefDes_SelectedIndexChanged);
@@ -287,7 +293,7 @@ namespace ProjectManager {
 			// 
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(244, 91);
+			this.label6.Location = new System.Drawing.Point(244, 130);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(116, 13);
 			this.label6.TabIndex = 16;
@@ -351,13 +357,44 @@ namespace ProjectManager {
 			// btnRefDesClear
 			// 
 			this.btnRefDesClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnRefDesClear.Location = new System.Drawing.Point(332, 220);
+			this.btnRefDesClear.Location = new System.Drawing.Point(332, 259);
 			this.btnRefDesClear.Name = "btnRefDesClear";
 			this.btnRefDesClear.Size = new System.Drawing.Size(90, 23);
 			this.btnRefDesClear.TabIndex = 25;
 			this.btnRefDesClear.Text = "Clear";
 			this.btnRefDesClear.UseVisualStyleBackColor = true;
 			this.btnRefDesClear.Click += new System.EventHandler(this.btnRefDesClear_Click);
+			// 
+			// label5
+			// 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(244, 88);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(34, 13);
+			this.label5.TabIndex = 26;
+			this.label5.Text = "Value";
+			// 
+			// txtComponentValue
+			// 
+			this.txtComponentValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtComponentValue.Location = new System.Drawing.Point(247, 104);
+			this.txtComponentValue.Name = "txtComponentValue";
+			this.txtComponentValue.Size = new System.Drawing.Size(175, 20);
+			this.txtComponentValue.TabIndex = 27;
+			// 
+			// chkComponentPopulate
+			// 
+			this.chkComponentPopulate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.chkComponentPopulate.AutoSize = true;
+			this.chkComponentPopulate.Checked = true;
+			this.chkComponentPopulate.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.chkComponentPopulate.Location = new System.Drawing.Point(343, 369);
+			this.chkComponentPopulate.Name = "chkComponentPopulate";
+			this.chkComponentPopulate.Size = new System.Drawing.Size(68, 17);
+			this.chkComponentPopulate.TabIndex = 28;
+			this.chkComponentPopulate.Text = "Populate";
+			this.chkComponentPopulate.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
@@ -413,6 +450,9 @@ namespace ProjectManager {
 		private System.Windows.Forms.Button btnRefDesRemove;
 		private System.Windows.Forms.Button btnSelectComponent;
 		private System.Windows.Forms.Button btnRefDesClear;
+		private System.Windows.Forms.TextBox txtComponentValue;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.CheckBox chkComponentPopulate;
 	}
 }
 
