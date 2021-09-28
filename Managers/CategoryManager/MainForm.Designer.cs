@@ -29,12 +29,12 @@ namespace CategoryManager {
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.grpCategory = new System.Windows.Forms.GroupBox();
-			this.txtCategory = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.lblCategoryID = new System.Windows.Forms.Label();
-			this.btnCategoryRename = new System.Windows.Forms.Button();
-			this.btnCategoryRemove = new System.Windows.Forms.Button();
 			this.btnCategoryAdd = new System.Windows.Forms.Button();
+			this.btnCategoryRemove = new System.Windows.Forms.Button();
+			this.btnCategoryRename = new System.Windows.Forms.Button();
+			this.lblCategoryID = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.txtCategory = new System.Windows.Forms.TextBox();
 			this.grpSubCategory = new System.Windows.Forms.GroupBox();
 			this.btnSubCategoryAdd = new System.Windows.Forms.Button();
 			this.btnSubCategoryRemove = new System.Windows.Forms.Button();
@@ -102,31 +102,26 @@ namespace CategoryManager {
 			this.grpCategory.TabStop = false;
 			this.grpCategory.Text = "Category";
 			// 
-			// txtCategory
+			// btnCategoryAdd
 			// 
-			this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtCategory.Location = new System.Drawing.Point(9, 32);
-			this.txtCategory.Name = "txtCategory";
-			this.txtCategory.Size = new System.Drawing.Size(202, 20);
-			this.txtCategory.TabIndex = 0;
+			this.btnCategoryAdd.Location = new System.Drawing.Point(9, 87);
+			this.btnCategoryAdd.Name = "btnCategoryAdd";
+			this.btnCategoryAdd.Size = new System.Drawing.Size(202, 23);
+			this.btnCategoryAdd.TabIndex = 5;
+			this.btnCategoryAdd.Text = "Add";
+			this.btnCategoryAdd.UseVisualStyleBackColor = true;
+			this.btnCategoryAdd.Click += new System.EventHandler(this.btnCategoryAdd_Click);
 			// 
-			// label1
+			// btnCategoryRemove
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(6, 16);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(35, 13);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "Name";
-			// 
-			// lblCategoryID
-			// 
-			this.lblCategoryID.Location = new System.Drawing.Point(157, 16);
-			this.lblCategoryID.Name = "lblCategoryID";
-			this.lblCategoryID.Size = new System.Drawing.Size(57, 13);
-			this.lblCategoryID.TabIndex = 2;
-			this.lblCategoryID.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			this.btnCategoryRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnCategoryRemove.Location = new System.Drawing.Point(113, 58);
+			this.btnCategoryRemove.Name = "btnCategoryRemove";
+			this.btnCategoryRemove.Size = new System.Drawing.Size(98, 23);
+			this.btnCategoryRemove.TabIndex = 4;
+			this.btnCategoryRemove.Text = "Delete";
+			this.btnCategoryRemove.UseVisualStyleBackColor = true;
+			this.btnCategoryRemove.Click += new System.EventHandler(this.btnCategoryRemove_Click);
 			// 
 			// btnCategoryRename
 			// 
@@ -138,26 +133,31 @@ namespace CategoryManager {
 			this.btnCategoryRename.UseVisualStyleBackColor = true;
 			this.btnCategoryRename.Click += new System.EventHandler(this.btnCategoryRename_Click);
 			// 
-			// btnCategoryRemove
+			// lblCategoryID
 			// 
-			this.btnCategoryRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnCategoryRemove.Location = new System.Drawing.Point(113, 58);
-			this.btnCategoryRemove.Name = "btnCategoryRemove";
-			this.btnCategoryRemove.Size = new System.Drawing.Size(98, 23);
-			this.btnCategoryRemove.TabIndex = 4;
-			this.btnCategoryRemove.Text = "Remove";
-			this.btnCategoryRemove.UseVisualStyleBackColor = true;
-			this.btnCategoryRemove.Click += new System.EventHandler(this.btnCategoryRemove_Click);
+			this.lblCategoryID.Location = new System.Drawing.Point(157, 16);
+			this.lblCategoryID.Name = "lblCategoryID";
+			this.lblCategoryID.Size = new System.Drawing.Size(57, 13);
+			this.lblCategoryID.TabIndex = 2;
+			this.lblCategoryID.TextAlign = System.Drawing.ContentAlignment.TopRight;
 			// 
-			// btnCategoryAdd
+			// label1
 			// 
-			this.btnCategoryAdd.Location = new System.Drawing.Point(9, 87);
-			this.btnCategoryAdd.Name = "btnCategoryAdd";
-			this.btnCategoryAdd.Size = new System.Drawing.Size(202, 23);
-			this.btnCategoryAdd.TabIndex = 5;
-			this.btnCategoryAdd.Text = "Add";
-			this.btnCategoryAdd.UseVisualStyleBackColor = true;
-			this.btnCategoryAdd.Click += new System.EventHandler(this.btnCategoryAdd_Click);
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(6, 16);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(35, 13);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "Name";
+			// 
+			// txtCategory
+			// 
+			this.txtCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtCategory.Location = new System.Drawing.Point(9, 32);
+			this.txtCategory.Name = "txtCategory";
+			this.txtCategory.Size = new System.Drawing.Size(202, 20);
+			this.txtCategory.TabIndex = 0;
 			// 
 			// grpSubCategory
 			// 
@@ -192,7 +192,7 @@ namespace CategoryManager {
 			this.btnSubCategoryRemove.Name = "btnSubCategoryRemove";
 			this.btnSubCategoryRemove.Size = new System.Drawing.Size(98, 23);
 			this.btnSubCategoryRemove.TabIndex = 4;
-			this.btnSubCategoryRemove.Text = "Remove";
+			this.btnSubCategoryRemove.Text = "Delete";
 			this.btnSubCategoryRemove.UseVisualStyleBackColor = true;
 			this.btnSubCategoryRemove.Click += new System.EventHandler(this.btnSubCategoryRemove_Click);
 			// 

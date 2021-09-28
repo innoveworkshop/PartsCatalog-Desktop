@@ -38,6 +38,10 @@ namespace ProjectManager {
 			this.lblProjectID = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.grpComponents = new System.Windows.Forms.GroupBox();
+			this.chkComponentPopulate = new System.Windows.Forms.CheckBox();
+			this.txtComponentValue = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.btnRefDesClear = new System.Windows.Forms.Button();
 			this.btnSelectComponent = new System.Windows.Forms.Button();
 			this.btnRefDesRemove = new System.Windows.Forms.Button();
 			this.btnRefDesRename = new System.Windows.Forms.Button();
@@ -51,10 +55,6 @@ namespace ProjectManager {
 			this.btnItemRemove = new System.Windows.Forms.Button();
 			this.btnItemAdd = new System.Windows.Forms.Button();
 			this.lstBOMItems = new System.Windows.Forms.ListBox();
-			this.btnRefDesClear = new System.Windows.Forms.Button();
-			this.label5 = new System.Windows.Forms.Label();
-			this.txtComponentValue = new System.Windows.Forms.TextBox();
-			this.chkComponentPopulate = new System.Windows.Forms.CheckBox();
 			this.grpProject.SuspendLayout();
 			this.grpComponents.SuspendLayout();
 			this.SuspendLayout();
@@ -115,7 +115,7 @@ namespace ProjectManager {
 			this.btnProjectRemove.Name = "btnProjectRemove";
 			this.btnProjectRemove.Size = new System.Drawing.Size(102, 23);
 			this.btnProjectRemove.TabIndex = 10;
-			this.btnProjectRemove.Text = "Remove";
+			this.btnProjectRemove.Text = "Delete";
 			this.btnProjectRemove.UseVisualStyleBackColor = true;
 			this.btnProjectRemove.Click += new System.EventHandler(this.btnProjectRemove_Click);
 			// 
@@ -215,6 +215,48 @@ namespace ProjectManager {
 			this.grpComponents.TabStop = false;
 			this.grpComponents.Text = "Components";
 			// 
+			// chkComponentPopulate
+			// 
+			this.chkComponentPopulate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.chkComponentPopulate.AutoSize = true;
+			this.chkComponentPopulate.Checked = true;
+			this.chkComponentPopulate.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.chkComponentPopulate.Location = new System.Drawing.Point(343, 369);
+			this.chkComponentPopulate.Name = "chkComponentPopulate";
+			this.chkComponentPopulate.Size = new System.Drawing.Size(68, 17);
+			this.chkComponentPopulate.TabIndex = 28;
+			this.chkComponentPopulate.Text = "Populate";
+			this.chkComponentPopulate.UseVisualStyleBackColor = true;
+			// 
+			// txtComponentValue
+			// 
+			this.txtComponentValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtComponentValue.Location = new System.Drawing.Point(247, 104);
+			this.txtComponentValue.Name = "txtComponentValue";
+			this.txtComponentValue.Size = new System.Drawing.Size(175, 20);
+			this.txtComponentValue.TabIndex = 27;
+			// 
+			// label5
+			// 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(244, 88);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(34, 13);
+			this.label5.TabIndex = 26;
+			this.label5.Text = "Value";
+			// 
+			// btnRefDesClear
+			// 
+			this.btnRefDesClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnRefDesClear.Location = new System.Drawing.Point(332, 259);
+			this.btnRefDesClear.Name = "btnRefDesClear";
+			this.btnRefDesClear.Size = new System.Drawing.Size(90, 23);
+			this.btnRefDesClear.TabIndex = 25;
+			this.btnRefDesClear.Text = "Clear";
+			this.btnRefDesClear.UseVisualStyleBackColor = true;
+			this.btnRefDesClear.Click += new System.EventHandler(this.btnRefDesClear_Click);
+			// 
 			// btnSelectComponent
 			// 
 			this.btnSelectComponent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -233,7 +275,7 @@ namespace ProjectManager {
 			this.btnRefDesRemove.Name = "btnRefDesRemove";
 			this.btnRefDesRemove.Size = new System.Drawing.Size(90, 23);
 			this.btnRefDesRemove.TabIndex = 23;
-			this.btnRefDesRemove.Text = "Remove";
+			this.btnRefDesRemove.Text = "Delete";
 			this.btnRefDesRemove.UseVisualStyleBackColor = true;
 			this.btnRefDesRemove.Click += new System.EventHandler(this.btnRefDesRemove_Click);
 			// 
@@ -326,7 +368,7 @@ namespace ProjectManager {
 			this.btnItemRemove.Name = "btnItemRemove";
 			this.btnItemRemove.Size = new System.Drawing.Size(112, 23);
 			this.btnItemRemove.TabIndex = 12;
-			this.btnItemRemove.Text = "Remove";
+			this.btnItemRemove.Text = "Delete";
 			this.btnItemRemove.UseVisualStyleBackColor = true;
 			this.btnItemRemove.Click += new System.EventHandler(this.btnItemRemove_Click);
 			// 
@@ -353,48 +395,6 @@ namespace ProjectManager {
 			this.lstBOMItems.Size = new System.Drawing.Size(231, 368);
 			this.lstBOMItems.TabIndex = 2;
 			this.lstBOMItems.SelectedIndexChanged += new System.EventHandler(this.lstBOMItems_SelectedIndexChanged);
-			// 
-			// btnRefDesClear
-			// 
-			this.btnRefDesClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnRefDesClear.Location = new System.Drawing.Point(332, 259);
-			this.btnRefDesClear.Name = "btnRefDesClear";
-			this.btnRefDesClear.Size = new System.Drawing.Size(90, 23);
-			this.btnRefDesClear.TabIndex = 25;
-			this.btnRefDesClear.Text = "Clear";
-			this.btnRefDesClear.UseVisualStyleBackColor = true;
-			this.btnRefDesClear.Click += new System.EventHandler(this.btnRefDesClear_Click);
-			// 
-			// label5
-			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(244, 88);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(34, 13);
-			this.label5.TabIndex = 26;
-			this.label5.Text = "Value";
-			// 
-			// txtComponentValue
-			// 
-			this.txtComponentValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtComponentValue.Location = new System.Drawing.Point(247, 104);
-			this.txtComponentValue.Name = "txtComponentValue";
-			this.txtComponentValue.Size = new System.Drawing.Size(175, 20);
-			this.txtComponentValue.TabIndex = 27;
-			// 
-			// chkComponentPopulate
-			// 
-			this.chkComponentPopulate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.chkComponentPopulate.AutoSize = true;
-			this.chkComponentPopulate.Checked = true;
-			this.chkComponentPopulate.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chkComponentPopulate.Location = new System.Drawing.Point(343, 369);
-			this.chkComponentPopulate.Name = "chkComponentPopulate";
-			this.chkComponentPopulate.Size = new System.Drawing.Size(68, 17);
-			this.chkComponentPopulate.TabIndex = 28;
-			this.chkComponentPopulate.Text = "Populate";
-			this.chkComponentPopulate.UseVisualStyleBackColor = true;
 			// 
 			// MainForm
 			// 
