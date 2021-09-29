@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using PartsCatalog.Models;
 using PartsCatalog.DesktopForms.Views;
 
-namespace Desktop.Forms {
+namespace PartsCatalog.Browsers.Views {
 	/// <summary>
 	/// Main form of the application.
 	/// </summary>

@@ -1,4 +1,4 @@
-namespace Desktop.Forms {
+namespace PartsCatalog.Browsers.Views {
 	partial class MainForm {
 		/// <summary>
 		/// Required designer variable.

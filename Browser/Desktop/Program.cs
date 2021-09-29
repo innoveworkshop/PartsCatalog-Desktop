@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Desktop.Forms;
+using PartsCatalog.Browsers.Views;
 
-namespace Desktop {
+namespace PartsCatalog.Browsers {
 	static class Program {
 		/// <summary>
 		/// The main entry point for the application.
