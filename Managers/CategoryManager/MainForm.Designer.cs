@@ -42,8 +42,11 @@ namespace CategoryManager {
 			this.lblSubCategoryID = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.txtSubCategory = new System.Windows.Forms.TextBox();
+			this.stpStatus = new System.Windows.Forms.StatusStrip();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.grpCategory.SuspendLayout();
 			this.grpSubCategory.SuspendLayout();
+			this.stpStatus.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lblCategories
@@ -232,11 +235,28 @@ namespace CategoryManager {
 			this.txtSubCategory.Size = new System.Drawing.Size(202, 20);
 			this.txtSubCategory.TabIndex = 0;
 			// 
+			// stpStatus
+			// 
+			this.stpStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslServer});
+			this.stpStatus.Location = new System.Drawing.Point(0, 362);
+			this.stpStatus.Name = "stpStatus";
+			this.stpStatus.Size = new System.Drawing.Size(681, 22);
+			this.stpStatus.TabIndex = 6;
+			this.stpStatus.Text = "statusStrip1";
+			// 
+			// tslServer
+			// 
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(681, 364);
+			this.ClientSize = new System.Drawing.Size(681, 384);
+			this.Controls.Add(this.stpStatus);
 			this.Controls.Add(this.grpSubCategory);
 			this.Controls.Add(this.grpCategory);
 			this.Controls.Add(this.lstSubCategories);
@@ -253,6 +273,8 @@ namespace CategoryManager {
 			this.grpCategory.PerformLayout();
 			this.grpSubCategory.ResumeLayout(false);
 			this.grpSubCategory.PerformLayout();
+			this.stpStatus.ResumeLayout(false);
+			this.stpStatus.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -278,6 +300,8 @@ namespace CategoryManager {
 		private System.Windows.Forms.Label lblSubCategoryID;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox txtSubCategory;
+		private System.Windows.Forms.StatusStrip stpStatus;
+		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 	}
 }
 

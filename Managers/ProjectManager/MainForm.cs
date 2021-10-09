@@ -358,6 +358,7 @@ namespace ProjectManager {
 		 ******************/
 
 		private void MainForm_Load(object sender, EventArgs e) {
+			tslServer.Text = PartsCatalog.Configuration.Domain;
 			PopulateProjectsList();
 		}
 

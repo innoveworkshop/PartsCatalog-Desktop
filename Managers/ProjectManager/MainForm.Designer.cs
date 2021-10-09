@@ -55,8 +55,11 @@ namespace ProjectManager {
 			this.btnItemRemove = new System.Windows.Forms.Button();
 			this.btnItemAdd = new System.Windows.Forms.Button();
 			this.lstBOMItems = new System.Windows.Forms.ListBox();
+			this.stpStatus = new System.Windows.Forms.StatusStrip();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.grpProject.SuspendLayout();
 			this.grpComponents.SuspendLayout();
+			this.stpStatus.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -396,11 +399,28 @@ namespace ProjectManager {
 			this.lstBOMItems.TabIndex = 2;
 			this.lstBOMItems.SelectedIndexChanged += new System.EventHandler(this.lstBOMItems_SelectedIndexChanged);
 			// 
+			// stpStatus
+			// 
+			this.stpStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslServer});
+			this.stpStatus.Location = new System.Drawing.Point(0, 443);
+			this.stpStatus.Name = "stpStatus";
+			this.stpStatus.Size = new System.Drawing.Size(691, 22);
+			this.stpStatus.TabIndex = 4;
+			this.stpStatus.Text = "statusStrip1";
+			// 
+			// tslServer
+			// 
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(691, 443);
+			this.ClientSize = new System.Drawing.Size(691, 465);
+			this.Controls.Add(this.stpStatus);
 			this.Controls.Add(this.grpComponents);
 			this.Controls.Add(this.grpProject);
 			this.Controls.Add(this.lstProjects);
@@ -415,6 +435,8 @@ namespace ProjectManager {
 			this.grpProject.PerformLayout();
 			this.grpComponents.ResumeLayout(false);
 			this.grpComponents.PerformLayout();
+			this.stpStatus.ResumeLayout(false);
+			this.stpStatus.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -453,6 +475,8 @@ namespace ProjectManager {
 		private System.Windows.Forms.TextBox txtComponentValue;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.CheckBox chkComponentPopulate;
+		private System.Windows.Forms.StatusStrip stpStatus;
+		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 	}
 }
 

@@ -203,6 +203,7 @@ namespace PackageManager {
 		 ******************/
 
 		private void MainForm_Load(object sender, EventArgs e) {
+			tslServer.Text = PartsCatalog.Configuration.Domain;
 			PopulatePackagesList();
 		}
 

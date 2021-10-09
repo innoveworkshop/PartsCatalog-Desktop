@@ -27,6 +27,9 @@ namespace PackageManager {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.lstPackages = new System.Windows.Forms.ListBox();
 			this.picImage = new System.Windows.Forms.PictureBox();
+			this.ctmImage = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.contextBrowseImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextDeleteImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.lblName = new System.Windows.Forms.Label();
 			this.txtName = new System.Windows.Forms.TextBox();
 			this.lblID = new System.Windows.Forms.Label();
@@ -43,13 +46,13 @@ namespace PackageManager {
 			this.browseImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
 			this.deleteImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.ctmImage = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.contextBrowseImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.contextDeleteImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dlgOpenImage = new System.Windows.Forms.OpenFileDialog();
+			this.stpStatus = new System.Windows.Forms.StatusStrip();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
-			this.stpMenu.SuspendLayout();
 			this.ctmImage.SuspendLayout();
+			this.stpMenu.SuspendLayout();
+			this.stpStatus.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lstPackages
@@ -74,6 +77,30 @@ namespace PackageManager {
 			this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.picImage.TabIndex = 3;
 			this.picImage.TabStop = false;
+			// 
+			// ctmImage
+			// 
+			this.ctmImage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextBrowseImageToolStripMenuItem,
+            this.contextDeleteImageToolStripMenuItem});
+			this.ctmImage.Name = "ctmImage";
+			this.ctmImage.Size = new System.Drawing.Size(122, 48);
+			// 
+			// contextBrowseImageToolStripMenuItem
+			// 
+			this.contextBrowseImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contextBrowseImageToolStripMenuItem.Image")));
+			this.contextBrowseImageToolStripMenuItem.Name = "contextBrowseImageToolStripMenuItem";
+			this.contextBrowseImageToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+			this.contextBrowseImageToolStripMenuItem.Text = "Browse...";
+			this.contextBrowseImageToolStripMenuItem.Click += new System.EventHandler(this.contextBrowseImageToolStripMenuItem_Click);
+			// 
+			// contextDeleteImageToolStripMenuItem
+			// 
+			this.contextDeleteImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contextDeleteImageToolStripMenuItem.Image")));
+			this.contextDeleteImageToolStripMenuItem.Name = "contextDeleteImageToolStripMenuItem";
+			this.contextDeleteImageToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+			this.contextDeleteImageToolStripMenuItem.Text = "Delete";
+			this.contextDeleteImageToolStripMenuItem.Click += new System.EventHandler(this.contextDeleteImageToolStripMenuItem_Click);
 			// 
 			// lblName
 			// 
@@ -198,57 +225,50 @@ namespace PackageManager {
 			// 
 			this.browseImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("browseImageToolStripMenuItem.Image")));
 			this.browseImageToolStripMenuItem.Name = "browseImageToolStripMenuItem";
-			this.browseImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.browseImageToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
 			this.browseImageToolStripMenuItem.Text = "Browse...";
 			this.browseImageToolStripMenuItem.Click += new System.EventHandler(this.browseImageToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem2
 			// 
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(118, 6);
 			// 
 			// deleteImageToolStripMenuItem
 			// 
 			this.deleteImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteImageToolStripMenuItem.Image")));
 			this.deleteImageToolStripMenuItem.Name = "deleteImageToolStripMenuItem";
-			this.deleteImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.deleteImageToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
 			this.deleteImageToolStripMenuItem.Text = "Delete";
 			this.deleteImageToolStripMenuItem.Click += new System.EventHandler(this.deleteImageToolStripMenuItem_Click);
-			// 
-			// ctmImage
-			// 
-			this.ctmImage.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contextBrowseImageToolStripMenuItem,
-            this.contextDeleteImageToolStripMenuItem});
-			this.ctmImage.Name = "ctmImage";
-			this.ctmImage.Size = new System.Drawing.Size(122, 48);
-			// 
-			// contextBrowseImageToolStripMenuItem
-			// 
-			this.contextBrowseImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contextBrowseImageToolStripMenuItem.Image")));
-			this.contextBrowseImageToolStripMenuItem.Name = "contextBrowseImageToolStripMenuItem";
-			this.contextBrowseImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.contextBrowseImageToolStripMenuItem.Text = "Browse...";
-			this.contextBrowseImageToolStripMenuItem.Click += new System.EventHandler(this.contextBrowseImageToolStripMenuItem_Click);
-			// 
-			// contextDeleteImageToolStripMenuItem
-			// 
-			this.contextDeleteImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contextDeleteImageToolStripMenuItem.Image")));
-			this.contextDeleteImageToolStripMenuItem.Name = "contextDeleteImageToolStripMenuItem";
-			this.contextDeleteImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.contextDeleteImageToolStripMenuItem.Text = "Delete";
-			this.contextDeleteImageToolStripMenuItem.Click += new System.EventHandler(this.contextDeleteImageToolStripMenuItem_Click);
 			// 
 			// dlgOpenImage
 			// 
 			this.dlgOpenImage.Filter = resources.GetString("dlgOpenImage.Filter");
 			this.dlgOpenImage.Title = "Upload Package Image";
 			// 
+			// stpStatus
+			// 
+			this.stpStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslServer});
+			this.stpStatus.Location = new System.Drawing.Point(0, 393);
+			this.stpStatus.Name = "stpStatus";
+			this.stpStatus.Size = new System.Drawing.Size(431, 22);
+			this.stpStatus.TabIndex = 11;
+			this.stpStatus.Text = "statusStrip1";
+			// 
+			// tslServer
+			// 
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(431, 392);
+			this.ClientSize = new System.Drawing.Size(431, 415);
+			this.Controls.Add(this.stpStatus);
 			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.btnRemove);
 			this.Controls.Add(this.btnRename);
@@ -266,9 +286,11 @@ namespace PackageManager {
 			this.Text = "Component Package Manager";
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
+			this.ctmImage.ResumeLayout(false);
 			this.stpMenu.ResumeLayout(false);
 			this.stpMenu.PerformLayout();
-			this.ctmImage.ResumeLayout(false);
+			this.stpStatus.ResumeLayout(false);
+			this.stpStatus.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -298,6 +320,8 @@ namespace PackageManager {
 		private System.Windows.Forms.ToolStripMenuItem contextBrowseImageToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem contextDeleteImageToolStripMenuItem;
 		private System.Windows.Forms.OpenFileDialog dlgOpenImage;
+		private System.Windows.Forms.StatusStrip stpStatus;
+		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 	}
 }
 

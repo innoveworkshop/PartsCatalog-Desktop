@@ -35,6 +35,8 @@ namespace PartsCatalog.Browsers.Views {
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.grdResults = new System.Windows.Forms.DataGridView();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
+			this.stpStatus.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
 			this.ctnMainSplit.Panel2.SuspendLayout();
@@ -47,6 +49,8 @@ namespace PartsCatalog.Browsers.Views {
 			// 
 			// stpStatus
 			// 
+			this.stpStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslServer});
 			this.stpStatus.Location = new System.Drawing.Point(0, 519);
 			this.stpStatus.Name = "stpStatus";
 			this.stpStatus.Size = new System.Drawing.Size(769, 22);
@@ -183,6 +187,12 @@ namespace PartsCatalog.Browsers.Views {
 			this.grdResults.TabIndex = 0;
 			this.grdResults.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResults_CellContentDoubleClick);
 			// 
+			// tslServer
+			// 
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -196,6 +206,8 @@ namespace PartsCatalog.Browsers.Views {
 			this.Name = "MainForm";
 			this.Text = "PartsCatalog Browser";
 			this.Load += new System.EventHandler(this.MainForm_Load);
+			this.stpStatus.ResumeLayout(false);
+			this.stpStatus.PerformLayout();
 			this.stpMenu.ResumeLayout(false);
 			this.stpMenu.PerformLayout();
 			this.ctnMainSplit.Panel1.ResumeLayout(false);
@@ -223,6 +235,7 @@ namespace PartsCatalog.Browsers.Views {
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ListBox lstSubCategories;
 		private System.Windows.Forms.Label lblSubCategories;
+		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 
 	}
 }
