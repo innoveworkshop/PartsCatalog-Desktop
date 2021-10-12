@@ -22,6 +22,9 @@ namespace PackageManager {
 			InitializeComponent();
 			packages = new BindingList<Package>();
 
+			// Allow drag and drop of an image.
+			picImage.AllowDrop = true;
+
 			// Setup data binding for the list.
 			lstPackages.DataSource = packages;
 			lstPackages.DisplayMember = "Name";
@@ -160,6 +163,21 @@ namespace PackageManager {
 		}
 
 		/// <summary>
+		/// Sets the package image and uploads it to the server.
+		/// </summary>
+		/// <param name="package">Package that will have its image updated.</param>
+		/// <param name="filePath">Image file to be uploaded.</param>
+		public void SetImage(Package package, string filePath) {
+			// Set the component image and upload the file.
+			package.Picture.AssociatedPackage = new Package(package.ID);
+			package.Picture.FileContent = File.ReadAllBytes(filePath);
+			package.Picture.Save();
+
+			// Show the new image.
+			PopulateImage(package, false);
+		}
+
+		/// <summary>
 		/// Browses and selects a package image and uploads it to the server.
 		/// </summary>
 		/// <param name="package">Package that will have its image updated.</param>
@@ -169,12 +187,7 @@ namespace PackageManager {
 				return;
 
 			// Set the component image and upload the file.
-			package.Picture.AssociatedPackage = new Package(package.ID);
-			package.Picture.FileContent = File.ReadAllBytes(dlgOpenImage.FileName);
-			package.Picture.Save();
-
-			// Show the new image.
-			PopulateImage(package, false);
+			SetImage(package, dlgOpenImage.FileName);
 		}
 
 		/// <summary>
@@ -265,6 +278,26 @@ namespace PackageManager {
 				return;
 
 			DeleteImage(package);
+		}
+
+		private void picImage_DragEnter(object sender, DragEventArgs e) {
+			// Display a nice copy effect if we actually have a file being dropped.
+			if (e.Data.GetDataPresent(DataFormats.FileDrop))
+				e.Effect = DragDropEffects.Copy;
+		}
+
+		private void picImage_DragDrop(object sender, DragEventArgs e) {
+			Package package = (Package)lstPackages.SelectedItem;
+			if (package == null)
+				return;
+
+			// Get the file and check if we only have a single one.
+			string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+			if (files.Length > 1)
+				throw new Exception("Only a single file should be dragged and dropped");
+
+			// Associate the new image.
+			SetImage(package, files[0]);
 		}
 	}
 }

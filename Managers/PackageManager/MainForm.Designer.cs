@@ -77,6 +77,8 @@ namespace PackageManager {
 			this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.picImage.TabIndex = 3;
 			this.picImage.TabStop = false;
+			this.picImage.DragDrop += new System.Windows.Forms.DragEventHandler(this.picImage_DragDrop);
+			this.picImage.DragEnter += new System.Windows.Forms.DragEventHandler(this.picImage_DragEnter);
 			// 
 			// ctmImage
 			// 
