@@ -22,12 +22,6 @@
         "Entry"
         {
         "MsmKey" = "8:_48016D3456E700E07914F03A56BFBFE3"
-        "OwnerKey" = "8:_B552E1F96A0ECA409EB781B6AED8BA05"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_48016D3456E700E07914F03A56BFBFE3"
         "OwnerKey" = "8:_00434801C856424896F31B6C72F6F188"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -47,6 +41,12 @@
         {
         "MsmKey" = "8:_48016D3456E700E07914F03A56BFBFE3"
         "OwnerKey" = "8:_4D1BB0A347AE4B428B40508E102F32D3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_48016D3456E700E07914F03A56BFBFE3"
+        "OwnerKey" = "8:_B552E1F96A0ECA409EB781B6AED8BA05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -76,13 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_48016D3456E700E07914F03A56BFBFE3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_00434801C856424896F31B6C72F6F188"
+        "OwnerKey" = "8:_4D1BB0A347AE4B428B40508E102F32D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -100,13 +94,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4D1BB0A347AE4B428B40508E102F32D3"
+        "OwnerKey" = "8:_B552E1F96A0ECA409EB781B6AED8BA05"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B552E1F96A0ECA409EB781B6AED8BA05"
+        "OwnerKey" = "8:_00434801C856424896F31B6C72F6F188"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_48016D3456E700E07914F03A56BFBFE3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -127,6 +127,17 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
         }
         "Release"
         {
@@ -143,6 +154,17 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                }
+            }
         }
     }
     "Deployable"
@@ -322,14 +344,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PartsCatalog"
-        "ProductCode" = "8:{3FBD2D6B-129E-4549-A498-CAB13B3EBD67}"
-        "PackageCode" = "8:{9C1676D6-642C-46F5-8ABD-D45F2C311965}"
+        "ProductCode" = "8:{1E5EC9D2-82F0-4DEC-95FB-758894BE4211}"
+        "PackageCode" = "8:{7A38FFEB-3C6C-49D3-88D4-57151738C533}"
         "UpgradeCode" = "8:{E62FD33E-7AB9-4484-93F5-D027E300D352}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:Innove Workshop"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -913,7 +935,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_00434801C856424896F31B6C72F6F188"
             {
-            "SourcePath" = "8:..\\Managers\\ProjectManager\\obj\\Debug\\ProjectManager.exe"
+            "SourcePath" = "8:..\\Managers\\ProjectManager\\obj\\Release\\ProjectManager.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_FEEF480314EA459FBFBB6E6EF1EFD6F8"
@@ -941,7 +963,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_4D1BB0A347AE4B428B40508E102F32D3"
             {
-            "SourcePath" = "8:..\\Browser\\Desktop\\obj\\Debug\\Browser.exe"
+            "SourcePath" = "8:..\\Browser\\Desktop\\obj\\Release\\Browser.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_FEEF480314EA459FBFBB6E6EF1EFD6F8"
@@ -969,7 +991,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_59D51A66D43C483E885B08E71E2BE1D9"
             {
-            "SourcePath" = "8:..\\Managers\\CategoryManager\\obj\\Debug\\CategoryManager.exe"
+            "SourcePath" = "8:..\\Managers\\CategoryManager\\obj\\Release\\CategoryManager.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_FEEF480314EA459FBFBB6E6EF1EFD6F8"
@@ -997,7 +1019,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F0555609B3E14E1AAA5A198F12C1452F"
             {
-            "SourcePath" = "8:..\\Managers\\PackageManager\\obj\\Debug\\PackageManager.exe"
+            "SourcePath" = "8:..\\Managers\\PackageManager\\obj\\Release\\PackageManager.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_FEEF480314EA459FBFBB6E6EF1EFD6F8"
