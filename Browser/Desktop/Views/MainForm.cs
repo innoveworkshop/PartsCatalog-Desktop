@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PartsCatalog.Models;
 using PartsCatalog.DesktopForms.Views;
+using System.Reflection;
 
 namespace PartsCatalog.Browsers.Views {
 	/// <summary>
@@ -37,7 +38,9 @@ namespace PartsCatalog.Browsers.Views {
 			lstSubCategories.ValueMember = "ID";
 
 			// Setup the components table data source.
-			//grdResults.AutoGenerateColumns = false;
+			grdResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+			grdResults.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.EnableResizing;
+			SetupGridDoubleBuffering(grdResults);
 			grdResults.DataSource = partsComponents;
 			SetupGridColumns();
 		}
@@ -75,6 +78,12 @@ namespace PartsCatalog.Browsers.Views {
 			grdResults.Columns["SubCategory"].DisplayIndex = 6;
 			grdResults.Columns["SubCategory"].Width = 115;
 			grdResults.Columns["SubCategory"].HeaderText = "Sub-Category";
+
+			// Picture
+			grdResults.Columns["Picture"].Visible = false;
+
+			// Datasheet
+			grdResults.Columns["Datasheet"].Visible = false;
 		}
 
 		/// <summary>
@@ -110,6 +119,21 @@ namespace PartsCatalog.Browsers.Views {
 				return;
 
 			new PartsCatalog.Models.Component().List<T>(partsComponents, queryParam, criteria);
+		}
+
+		/// <summary>
+		/// Enables double buffering to improve the performance in a <see cref="DataGridView"/>
+		/// </summary>
+		/// <param name="gridView">Grid view to have double buffering enabled.</param>
+		private void SetupGridDoubleBuffering(DataGridView gridView) {
+			// Make sure we are not running under Remote Desktop.
+			if (!System.Windows.Forms.SystemInformation.TerminalServerSession) {
+				Type dgvType = gridView.GetType();
+
+				PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
+					BindingFlags.Instance | BindingFlags.NonPublic);
+				pi.SetValue(gridView, true, null);
+			}
 		}
 
 		/******************
