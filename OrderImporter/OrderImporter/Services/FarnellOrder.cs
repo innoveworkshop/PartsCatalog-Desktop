@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.VisualBasic.FileIO;
+using System.ComponentModel;
 using OrderImporter.Models;
 
 namespace OrderImporter.Services {
@@ -11,13 +12,13 @@ namespace OrderImporter.Services {
 	/// </summary>
 	public class FarnellOrder {
 		private string _filePath;
-		private List<FarnellOrderItem> _items;
+		private BindingList<FarnellOrderItem> _items;
 
 		/// <summary>
 		/// Creates an empty Farnell order object.
 		/// </summary>
 		public FarnellOrder() {
-			Items = new List<FarnellOrderItem>();
+			Items = new BindingList<FarnellOrderItem>();
 		}
 
 		/// <summary>
@@ -83,7 +84,7 @@ namespace OrderImporter.Services {
 		/// <summary>
 		/// List of items in the order.
 		/// </summary>
-		public List<FarnellOrderItem> Items {
+		public BindingList<FarnellOrderItem> Items {
 			get { return _items; }
 			set { _items = value; }
 		}

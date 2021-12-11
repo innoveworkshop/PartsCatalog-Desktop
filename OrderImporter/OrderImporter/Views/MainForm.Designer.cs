@@ -25,29 +25,43 @@ namespace OrderImporter {
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+			this.navBinding = new System.Windows.Forms.BindingNavigator(this.components);
+			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
 			this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
 			this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-			this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-			this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-			this.bindingNavigator1.SuspendLayout();
+			this.stpStatus = new System.Windows.Forms.StatusStrip();
+			this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.panFields = new System.Windows.Forms.Panel();
+			this.txtDescription = new System.Windows.Forms.TextBox();
+			this.lblDescription = new System.Windows.Forms.Label();
+			this.txtName = new System.Windows.Forms.TextBox();
+			this.lblName = new System.Windows.Forms.Label();
+			this.updQuantity = new System.Windows.Forms.NumericUpDown();
+			this.lblQuantity = new System.Windows.Forms.Label();
+			this.panProperties = new System.Windows.Forms.Panel();
+			this.grdProperties = new System.Windows.Forms.DataGridView();
+			((System.ComponentModel.ISupportInitialize)(this.navBinding)).BeginInit();
+			this.navBinding.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+			this.panFields.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.updQuantity)).BeginInit();
+			this.panProperties.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.grdProperties)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// bindingNavigator1
+			// navBinding
 			// 
-			this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-			this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-			this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-			this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.navBinding.AddNewItem = null;
+			this.navBinding.BindingSource = this.bindingSource;
+			this.navBinding.CountItem = this.bindingNavigatorCountItem;
+			this.navBinding.DeleteItem = null;
+			this.navBinding.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
             this.bindingNavigatorSeparator,
@@ -56,19 +70,23 @@ namespace OrderImporter {
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-			this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
-			this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-			this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-			this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-			this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-			this.bindingNavigator1.Name = "bindingNavigator1";
-			this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-			this.bindingNavigator1.Size = new System.Drawing.Size(455, 25);
-			this.bindingNavigator1.TabIndex = 0;
-			this.bindingNavigator1.Text = "bindingNavigator1";
+            this.bindingNavigatorSeparator2});
+			this.navBinding.Location = new System.Drawing.Point(0, 0);
+			this.navBinding.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+			this.navBinding.MoveLastItem = this.bindingNavigatorMoveLastItem;
+			this.navBinding.MoveNextItem = this.bindingNavigatorMoveNextItem;
+			this.navBinding.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+			this.navBinding.Name = "navBinding";
+			this.navBinding.PositionItem = this.bindingNavigatorPositionItem;
+			this.navBinding.Size = new System.Drawing.Size(428, 25);
+			this.navBinding.TabIndex = 0;
+			// 
+			// bindingNavigatorCountItem
+			// 
+			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+			this.bindingNavigatorCountItem.Text = "of {0}";
+			this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
 			// 
 			// bindingNavigatorMoveFirstItem
 			// 
@@ -102,16 +120,9 @@ namespace OrderImporter {
 			this.bindingNavigatorPositionItem.Text = "0";
 			this.bindingNavigatorPositionItem.ToolTipText = "Current position";
 			// 
-			// bindingNavigatorCountItem
-			// 
-			this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-			this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-			this.bindingNavigatorCountItem.Text = "of {0}";
-			this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-			// 
 			// bindingNavigatorSeparator1
 			// 
-			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+			this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
 			this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
 			// 
 			// bindingNavigatorMoveNextItem
@@ -134,48 +145,141 @@ namespace OrderImporter {
 			// 
 			// bindingNavigatorSeparator2
 			// 
-			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
 			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
-			// bindingNavigatorAddNewItem
+			// stpStatus
 			// 
-			this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-			this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-			this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorAddNewItem.Text = "Add new";
+			this.stpStatus.Location = new System.Drawing.Point(0, 331);
+			this.stpStatus.Name = "stpStatus";
+			this.stpStatus.Size = new System.Drawing.Size(428, 22);
+			this.stpStatus.TabIndex = 1;
 			// 
-			// bindingNavigatorDeleteItem
+			// bindingSource
 			// 
-			this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-			this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-			this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-			this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-			this.bindingNavigatorDeleteItem.Text = "Delete";
+			this.bindingSource.CurrentChanged += new System.EventHandler(this.bindingSource_CurrentChanged);
 			// 
-			// statusStrip1
+			// panFields
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 544);
-			this.statusStrip1.Name = "statusStrip1";
-			this.statusStrip1.Size = new System.Drawing.Size(455, 22);
-			this.statusStrip1.TabIndex = 1;
-			this.statusStrip1.Text = "statusStrip1";
+			this.panFields.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.panFields.Controls.Add(this.txtDescription);
+			this.panFields.Controls.Add(this.lblDescription);
+			this.panFields.Controls.Add(this.txtName);
+			this.panFields.Controls.Add(this.lblName);
+			this.panFields.Controls.Add(this.updQuantity);
+			this.panFields.Controls.Add(this.lblQuantity);
+			this.panFields.Location = new System.Drawing.Point(9, 28);
+			this.panFields.Name = "panFields";
+			this.panFields.Size = new System.Drawing.Size(411, 93);
+			this.panFields.TabIndex = 2;
+			// 
+			// txtDescription
+			// 
+			this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtDescription.Location = new System.Drawing.Point(0, 55);
+			this.txtDescription.Multiline = true;
+			this.txtDescription.Name = "txtDescription";
+			this.txtDescription.Size = new System.Drawing.Size(411, 32);
+			this.txtDescription.TabIndex = 17;
+			// 
+			// lblDescription
+			// 
+			this.lblDescription.AutoSize = true;
+			this.lblDescription.Location = new System.Drawing.Point(-3, 39);
+			this.lblDescription.Name = "lblDescription";
+			this.lblDescription.Size = new System.Drawing.Size(60, 13);
+			this.lblDescription.TabIndex = 16;
+			this.lblDescription.Text = "Description";
+			// 
+			// txtName
+			// 
+			this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtName.Location = new System.Drawing.Point(68, 16);
+			this.txtName.Name = "txtName";
+			this.txtName.Size = new System.Drawing.Size(343, 20);
+			this.txtName.TabIndex = 15;
+			// 
+			// lblName
+			// 
+			this.lblName.AutoSize = true;
+			this.lblName.Location = new System.Drawing.Point(65, 0);
+			this.lblName.Name = "lblName";
+			this.lblName.Size = new System.Drawing.Size(35, 13);
+			this.lblName.TabIndex = 14;
+			this.lblName.Text = "Name";
+			// 
+			// updQuantity
+			// 
+			this.updQuantity.Location = new System.Drawing.Point(0, 16);
+			this.updQuantity.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+			this.updQuantity.Name = "updQuantity";
+			this.updQuantity.Size = new System.Drawing.Size(59, 20);
+			this.updQuantity.TabIndex = 13;
+			// 
+			// lblQuantity
+			// 
+			this.lblQuantity.AutoSize = true;
+			this.lblQuantity.Location = new System.Drawing.Point(-3, 0);
+			this.lblQuantity.Name = "lblQuantity";
+			this.lblQuantity.Size = new System.Drawing.Size(46, 13);
+			this.lblQuantity.TabIndex = 12;
+			this.lblQuantity.Text = "Quantity";
+			// 
+			// panProperties
+			// 
+			this.panProperties.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.panProperties.Controls.Add(this.grdProperties);
+			this.panProperties.Location = new System.Drawing.Point(9, 127);
+			this.panProperties.Name = "panProperties";
+			this.panProperties.Size = new System.Drawing.Size(411, 197);
+			this.panProperties.TabIndex = 3;
+			// 
+			// grdProperties
+			// 
+			this.grdProperties.AllowUserToAddRows = false;
+			this.grdProperties.AllowUserToDeleteRows = false;
+			this.grdProperties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.grdProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.grdProperties.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.grdProperties.Location = new System.Drawing.Point(0, 0);
+			this.grdProperties.Name = "grdProperties";
+			this.grdProperties.ReadOnly = true;
+			this.grdProperties.RowHeadersVisible = false;
+			this.grdProperties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.grdProperties.Size = new System.Drawing.Size(411, 197);
+			this.grdProperties.TabIndex = 1;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(455, 566);
-			this.Controls.Add(this.statusStrip1);
-			this.Controls.Add(this.bindingNavigator1);
+			this.ClientSize = new System.Drawing.Size(428, 353);
+			this.Controls.Add(this.panProperties);
+			this.Controls.Add(this.panFields);
+			this.Controls.Add(this.stpStatus);
+			this.Controls.Add(this.navBinding);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "Order Importer";
-			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-			this.bindingNavigator1.ResumeLayout(false);
-			this.bindingNavigator1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.navBinding)).EndInit();
+			this.navBinding.ResumeLayout(false);
+			this.navBinding.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+			this.panFields.ResumeLayout(false);
+			this.panFields.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.updQuantity)).EndInit();
+			this.panProperties.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.grdProperties)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -183,10 +287,8 @@ namespace OrderImporter {
 
 		#endregion
 
-		private System.Windows.Forms.BindingNavigator bindingNavigator1;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+		private System.Windows.Forms.BindingNavigator navBinding;
 		private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-		private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
 		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
 		private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
 		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -195,7 +297,17 @@ namespace OrderImporter {
 		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
 		private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
 		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-		private System.Windows.Forms.StatusStrip statusStrip1;
+		private System.Windows.Forms.StatusStrip stpStatus;
+		private System.Windows.Forms.BindingSource bindingSource;
+		private System.Windows.Forms.Panel panFields;
+		private System.Windows.Forms.TextBox txtDescription;
+		private System.Windows.Forms.Label lblDescription;
+		private System.Windows.Forms.TextBox txtName;
+		private System.Windows.Forms.Label lblName;
+		private System.Windows.Forms.NumericUpDown updQuantity;
+		private System.Windows.Forms.Label lblQuantity;
+		private System.Windows.Forms.Panel panProperties;
+		private System.Windows.Forms.DataGridView grdProperties;
 	}
 }
 
