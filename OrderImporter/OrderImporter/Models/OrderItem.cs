@@ -18,6 +18,14 @@ namespace OrderImporter.Models {
 		}
 
 		/// <summary>
+		/// Creates an component order item and populates it from CSV fields.
+		/// </summary>
+		/// <param name="fields">Order CSV row fields.</param>
+		public OrderItem(string[] fields) : base() {
+			ImportFromCSV(fields);
+		}
+
+		/// <summary>
 		/// Imports a component order item from a set of CSV fields.
 		/// </summary>
 		/// <param name="fields">CSV row fields.</param>

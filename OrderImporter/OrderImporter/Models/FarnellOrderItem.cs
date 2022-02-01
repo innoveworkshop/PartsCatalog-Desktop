@@ -18,8 +18,7 @@ namespace OrderImporter.Models {
 		/// Creates a Farnell component order item and populates it from CSV fields.
 		/// </summary>
 		/// <param name="fields">Order CSV row fields.</param>
-		public FarnellOrderItem(string[] fields) : base() {
-			ImportFromCSV(fields);
+		public FarnellOrderItem(string[] fields) : base(fields) {
 		}
 
 		/// <summary>
