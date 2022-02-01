@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\GenericOrderItem.cs" />
     <Compile Include="Models\FarnellOrderItem.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Services\FarnellOrder.cs" />

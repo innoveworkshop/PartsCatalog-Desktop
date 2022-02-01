@@ -26,6 +26,7 @@ namespace OrderImporter {
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.navBinding = new System.Windows.Forms.BindingNavigator(this.components);
+			this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
 			this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -35,8 +36,9 @@ namespace OrderImporter {
 			this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsbImport = new System.Windows.Forms.ToolStripButton();
+			this.tsbViewComponent = new System.Windows.Forms.ToolStripButton();
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
-			this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.panFields = new System.Windows.Forms.Panel();
 			this.txtDescription = new System.Windows.Forms.TextBox();
 			this.lblDescription = new System.Windows.Forms.Label();
@@ -46,6 +48,16 @@ namespace OrderImporter {
 			this.lblQuantity = new System.Windows.Forms.Label();
 			this.panProperties = new System.Windows.Forms.Panel();
 			this.grdProperties = new System.Windows.Forms.DataGridView();
+			this.lblPackage = new System.Windows.Forms.Label();
+			this.cmbPackage = new System.Windows.Forms.ComboBox();
+			this.lblCategory = new System.Windows.Forms.Label();
+			this.cmbCategory = new System.Windows.Forms.ComboBox();
+			this.lblSubCategory = new System.Windows.Forms.Label();
+			this.cmbSubCategory = new System.Windows.Forms.ComboBox();
+			this.lblDatasheetURL = new System.Windows.Forms.Label();
+			this.txtDatasheetURL = new System.Windows.Forms.TextBox();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
 			((System.ComponentModel.ISupportInitialize)(this.navBinding)).BeginInit();
 			this.navBinding.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
@@ -70,7 +82,11 @@ namespace OrderImporter {
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2});
+            this.bindingNavigatorSeparator2,
+            this.tsbImport,
+            this.tsbViewComponent,
+            this.toolStripSeparator1,
+            this.toolStripButton1});
 			this.navBinding.Location = new System.Drawing.Point(0, 0);
 			this.navBinding.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
 			this.navBinding.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -80,6 +96,10 @@ namespace OrderImporter {
 			this.navBinding.PositionItem = this.bindingNavigatorPositionItem;
 			this.navBinding.Size = new System.Drawing.Size(428, 25);
 			this.navBinding.TabIndex = 0;
+			// 
+			// bindingSource
+			// 
+			this.bindingSource.CurrentChanged += new System.EventHandler(this.bindingSource_CurrentChanged);
 			// 
 			// bindingNavigatorCountItem
 			// 
@@ -148,21 +168,47 @@ namespace OrderImporter {
 			this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
 			this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
 			// 
+			// tsbImport
+			// 
+			this.tsbImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbImport.Enabled = false;
+			this.tsbImport.Image = ((System.Drawing.Image)(resources.GetObject("tsbImport.Image")));
+			this.tsbImport.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbImport.Name = "tsbImport";
+			this.tsbImport.Size = new System.Drawing.Size(23, 22);
+			this.tsbImport.Text = "Import";
+			this.tsbImport.Click += new System.EventHandler(this.tsbImport_Click);
+			// 
+			// tsbViewComponent
+			// 
+			this.tsbViewComponent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbViewComponent.Enabled = false;
+			this.tsbViewComponent.Image = ((System.Drawing.Image)(resources.GetObject("tsbViewComponent.Image")));
+			this.tsbViewComponent.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbViewComponent.Name = "tsbViewComponent";
+			this.tsbViewComponent.Size = new System.Drawing.Size(23, 22);
+			this.tsbViewComponent.Text = "View Component";
+			this.tsbViewComponent.Click += new System.EventHandler(this.tsbViewComponent_Click);
+			// 
 			// stpStatus
 			// 
-			this.stpStatus.Location = new System.Drawing.Point(0, 331);
+			this.stpStatus.Location = new System.Drawing.Point(0, 422);
 			this.stpStatus.Name = "stpStatus";
 			this.stpStatus.Size = new System.Drawing.Size(428, 22);
 			this.stpStatus.TabIndex = 1;
-			// 
-			// bindingSource
-			// 
-			this.bindingSource.CurrentChanged += new System.EventHandler(this.bindingSource_CurrentChanged);
 			// 
 			// panFields
 			// 
 			this.panFields.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
+			this.panFields.Controls.Add(this.txtDatasheetURL);
+			this.panFields.Controls.Add(this.lblDatasheetURL);
+			this.panFields.Controls.Add(this.cmbSubCategory);
+			this.panFields.Controls.Add(this.lblSubCategory);
+			this.panFields.Controls.Add(this.cmbCategory);
+			this.panFields.Controls.Add(this.lblCategory);
+			this.panFields.Controls.Add(this.cmbPackage);
+			this.panFields.Controls.Add(this.lblPackage);
 			this.panFields.Controls.Add(this.txtDescription);
 			this.panFields.Controls.Add(this.lblDescription);
 			this.panFields.Controls.Add(this.txtName);
@@ -171,7 +217,7 @@ namespace OrderImporter {
 			this.panFields.Controls.Add(this.lblQuantity);
 			this.panFields.Location = new System.Drawing.Point(9, 28);
 			this.panFields.Name = "panFields";
-			this.panFields.Size = new System.Drawing.Size(411, 93);
+			this.panFields.Size = new System.Drawing.Size(411, 175);
 			this.panFields.TabIndex = 2;
 			// 
 			// txtDescription
@@ -179,16 +225,16 @@ namespace OrderImporter {
 			this.txtDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.txtDescription.Location = new System.Drawing.Point(0, 55);
+			this.txtDescription.Location = new System.Drawing.Point(0, 95);
 			this.txtDescription.Multiline = true;
 			this.txtDescription.Name = "txtDescription";
-			this.txtDescription.Size = new System.Drawing.Size(411, 32);
+			this.txtDescription.Size = new System.Drawing.Size(411, 39);
 			this.txtDescription.TabIndex = 17;
 			// 
 			// lblDescription
 			// 
 			this.lblDescription.AutoSize = true;
-			this.lblDescription.Location = new System.Drawing.Point(-3, 39);
+			this.lblDescription.Location = new System.Drawing.Point(-3, 79);
 			this.lblDescription.Name = "lblDescription";
 			this.lblDescription.Size = new System.Drawing.Size(60, 13);
 			this.lblDescription.TabIndex = 16;
@@ -200,7 +246,7 @@ namespace OrderImporter {
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.txtName.Location = new System.Drawing.Point(68, 16);
 			this.txtName.Name = "txtName";
-			this.txtName.Size = new System.Drawing.Size(343, 20);
+			this.txtName.Size = new System.Drawing.Size(227, 20);
 			this.txtName.TabIndex = 15;
 			// 
 			// lblName
@@ -239,9 +285,9 @@ namespace OrderImporter {
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.panProperties.Controls.Add(this.grdProperties);
-			this.panProperties.Location = new System.Drawing.Point(9, 127);
+			this.panProperties.Location = new System.Drawing.Point(9, 209);
 			this.panProperties.Name = "panProperties";
-			this.panProperties.Size = new System.Drawing.Size(411, 197);
+			this.panProperties.Size = new System.Drawing.Size(411, 206);
 			this.panProperties.TabIndex = 3;
 			// 
 			// grdProperties
@@ -256,14 +302,103 @@ namespace OrderImporter {
 			this.grdProperties.ReadOnly = true;
 			this.grdProperties.RowHeadersVisible = false;
 			this.grdProperties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.grdProperties.Size = new System.Drawing.Size(411, 197);
+			this.grdProperties.Size = new System.Drawing.Size(411, 206);
 			this.grdProperties.TabIndex = 1;
+			// 
+			// lblPackage
+			// 
+			this.lblPackage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblPackage.AutoSize = true;
+			this.lblPackage.Location = new System.Drawing.Point(301, 0);
+			this.lblPackage.Name = "lblPackage";
+			this.lblPackage.Size = new System.Drawing.Size(50, 13);
+			this.lblPackage.TabIndex = 18;
+			this.lblPackage.Text = "Package";
+			// 
+			// cmbPackage
+			// 
+			this.cmbPackage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.cmbPackage.FormattingEnabled = true;
+			this.cmbPackage.Location = new System.Drawing.Point(304, 15);
+			this.cmbPackage.Name = "cmbPackage";
+			this.cmbPackage.Size = new System.Drawing.Size(107, 21);
+			this.cmbPackage.TabIndex = 19;
+			// 
+			// lblCategory
+			// 
+			this.lblCategory.AutoSize = true;
+			this.lblCategory.Location = new System.Drawing.Point(-3, 39);
+			this.lblCategory.Name = "lblCategory";
+			this.lblCategory.Size = new System.Drawing.Size(49, 13);
+			this.lblCategory.TabIndex = 20;
+			this.lblCategory.Text = "Category";
+			// 
+			// cmbCategory
+			// 
+			this.cmbCategory.FormattingEnabled = true;
+			this.cmbCategory.Location = new System.Drawing.Point(0, 55);
+			this.cmbCategory.Name = "cmbCategory";
+			this.cmbCategory.Size = new System.Drawing.Size(202, 21);
+			this.cmbCategory.TabIndex = 21;
+			// 
+			// lblSubCategory
+			// 
+			this.lblSubCategory.AutoSize = true;
+			this.lblSubCategory.Location = new System.Drawing.Point(208, 39);
+			this.lblSubCategory.Name = "lblSubCategory";
+			this.lblSubCategory.Size = new System.Drawing.Size(71, 13);
+			this.lblSubCategory.TabIndex = 22;
+			this.lblSubCategory.Text = "Sub-Category";
+			// 
+			// cmbSubCategory
+			// 
+			this.cmbSubCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.cmbSubCategory.FormattingEnabled = true;
+			this.cmbSubCategory.Location = new System.Drawing.Point(211, 55);
+			this.cmbSubCategory.Name = "cmbSubCategory";
+			this.cmbSubCategory.Size = new System.Drawing.Size(200, 21);
+			this.cmbSubCategory.TabIndex = 23;
+			// 
+			// lblDatasheetURL
+			// 
+			this.lblDatasheetURL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.lblDatasheetURL.AutoSize = true;
+			this.lblDatasheetURL.Location = new System.Drawing.Point(-3, 137);
+			this.lblDatasheetURL.Name = "lblDatasheetURL";
+			this.lblDatasheetURL.Size = new System.Drawing.Size(81, 13);
+			this.lblDatasheetURL.TabIndex = 24;
+			this.lblDatasheetURL.Text = "Datasheet URL";
+			// 
+			// txtDatasheetURL
+			// 
+			this.txtDatasheetURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtDatasheetURL.Location = new System.Drawing.Point(0, 153);
+			this.txtDatasheetURL.Name = "txtDatasheetURL";
+			this.txtDatasheetURL.Size = new System.Drawing.Size(411, 20);
+			this.txtDatasheetURL.TabIndex = 25;
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+			// 
+			// toolStripButton1
+			// 
+			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.toolStripButton1.Name = "toolStripButton1";
+			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+			this.toolStripButton1.Text = "Distributor\'s Website";
+			this.toolStripButton1.ToolTipText = "Go to the distributor\'s website";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(428, 353);
+			this.ClientSize = new System.Drawing.Size(428, 444);
 			this.Controls.Add(this.panProperties);
 			this.Controls.Add(this.panFields);
 			this.Controls.Add(this.stpStatus);
@@ -308,6 +443,18 @@ namespace OrderImporter {
 		private System.Windows.Forms.Label lblQuantity;
 		private System.Windows.Forms.Panel panProperties;
 		private System.Windows.Forms.DataGridView grdProperties;
+		private System.Windows.Forms.ToolStripButton tsbImport;
+		private System.Windows.Forms.ToolStripButton tsbViewComponent;
+		private System.Windows.Forms.Label lblPackage;
+		private System.Windows.Forms.ComboBox cmbPackage;
+		private System.Windows.Forms.ComboBox cmbSubCategory;
+		private System.Windows.Forms.Label lblSubCategory;
+		private System.Windows.Forms.ComboBox cmbCategory;
+		private System.Windows.Forms.Label lblCategory;
+		private System.Windows.Forms.TextBox txtDatasheetURL;
+		private System.Windows.Forms.Label lblDatasheetURL;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripButton toolStripButton1;
 	}
 }
 
