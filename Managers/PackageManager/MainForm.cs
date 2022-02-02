@@ -151,7 +151,7 @@ namespace PackageManager {
 		public void DeletePackage(Package package) {
 			DialogResult dialog = MessageBox.Show("Are you sure you want to delete " +
 				"the package '" + package.Name + "'?", "Delete package?",
-				MessageBoxButtons.YesNo);
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 			// Ignore if the user was mistaken.
 			if (dialog == DialogResult.No)
@@ -197,7 +197,7 @@ namespace PackageManager {
 		public void DeleteImage(Package package) {
 			DialogResult dialog = MessageBox.Show("Are you sure you want to delete " +
 				"this package's image?", "Delete package image?",
-				MessageBoxButtons.YesNo);
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 			// Ignore if the user was mistaken.
 			if (dialog == DialogResult.No)

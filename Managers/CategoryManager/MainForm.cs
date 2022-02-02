@@ -212,7 +212,7 @@ namespace CategoryManager {
 		public void DeleteCategory(Category category) {
 			DialogResult dialog = MessageBox.Show("Are you sure you want to delete " +
 				"the category '" + category.Name + "' and all of its sub-categories?",
-				"Delete category?", MessageBoxButtons.YesNo);
+				"Delete category?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 			// Ignore if the user was mistaken.
 			if (dialog == DialogResult.No)
@@ -230,7 +230,7 @@ namespace CategoryManager {
 		public void DeleteSubCategory(SubCategory subCategory) {
 			DialogResult dialog = MessageBox.Show("Are you sure you want to delete " +
 				"the sub-category '" + subCategory.Name + "'?", "Delete sub-category?",
-				MessageBoxButtons.YesNo);
+				MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
 			// Ignore if the user was mistaken.
 			if (dialog == DialogResult.No)
