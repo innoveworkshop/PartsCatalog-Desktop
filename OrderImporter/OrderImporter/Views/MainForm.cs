@@ -17,7 +17,6 @@ namespace OrderImporter {
 	/// </summary>
 	public partial class MainForm : Form {
 		private CommonComponentControls commonComponentControls;
-		private OrderItem _currentItem;
 		private FarnellOrder order;
 
 		/// <summary>
@@ -27,10 +26,9 @@ namespace OrderImporter {
 			InitializeComponent();
 
 			// Setup the common component controls.
-			_currentItem = new GenericOrderItem();
 			commonComponentControls = new CommonComponentControls(this,
-				CurrentOrderItem, cmbCategory, cmbSubCategory, cmbPackage,
-				grdProperties);
+				new PartsCatalog.Models.Component(), cmbCategory, cmbSubCategory,
+				cmbPackage, grdProperties);
 
 			// Create a test Farnell order and attach its items to a binding source.
 			order = new FarnellOrder(
@@ -53,7 +51,80 @@ namespace OrderImporter {
 		/// <param name="checkIfExists">Check if this is a duplicate and ask the
 		/// user they want to just update the quantity.</param>
 		public void ImportItem(OrderItem item, bool checkIfExists) {
-			// TODO
+			// If the order is already in the database or we don't need to check
+			// for duplicates then just save it already.
+			if (item.IsValid() || !checkIfExists) {
+				item.Save();
+				return;
+			}
+
+			// Check with the user if they want to merge.
+			if (!CheckDatabaseAndMerge(item, false)) {
+				// User didn't merge.
+				MessageBox.Show(this, "No component was imported into the database.",
+					"No operation was performed", MessageBoxButtons.OK,
+					MessageBoxIcon.Warning);
+				return;
+			}
+
+			// If nothing was merged let's save the new item then.
+			if (!item.IsValid()) {
+				item.Save();
+
+				// Download the datasheet if needed.
+				if (txtDatasheetURL.Text.Length > 0) {
+					CurrentOrderItem.Datasheet.AssociatedComponent = CurrentOrderItem;
+					CurrentOrderItem.Datasheet.UploadFromURL(txtDatasheetURL.Text);
+				}
+
+				// Update the view.
+				UpdateItemView();
+			}
+		}
+
+		/// <summary>
+		/// Checks the database if there's a match with the order item and asks
+		/// the user if they want to merge the components.
+		/// </summary>
+		/// <param name="item">Order item to check for.</param>
+		/// <param name="showNotFoundDialog">Show a 'no matching component found'
+		/// type of dialog?</param>
+		/// <returns><c>true</c> if the user has merged the components or if there's
+		/// no match in the database. Otherwise <c>false</c> will be returned.</returns>
+		public bool CheckDatabaseAndMerge(OrderItem item, bool showNotFoundDialog) {
+			// The item has already been merged. No need to do anything.
+			if (item.IsValid())
+				return true;
+
+			// Let's check if we have something in the database that might match this.
+			PartsCatalog.Models.Component component = GetComponentFromItem(item);
+			if (component == null) {
+				// Show a nice dialog?
+				if (showNotFoundDialog) {
+					MessageBox.Show(this, "No suitable matching component was found " +
+						"in the database to merge with this order item.",
+						"No matching component found", MessageBoxButtons.OK,
+						MessageBoxIcon.Information);
+				}
+
+				return true;
+			}
+
+			// Ask the user about what we should do.
+			DialogResult dialog = MessageBox.Show(this, "There's already a '" + item.Name +
+				"' component in the database. Do you with to just update its quantity?",
+				"Merge with component already in the database?", MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question);
+
+			// Ignore if the user was mistaken.
+			if (dialog == DialogResult.No)
+				return false;
+
+			// Merge the components and update the view.
+			MergeOrderWithComponent(item, component);
+			UpdateItemView();
+
+			return true;
 		}
 
 		/// <summary>
@@ -88,7 +159,15 @@ namespace OrderImporter {
 		/// <param name="component">Component to be updated.</param>
 		private void MergeOrderWithComponent(OrderItem item,
 				PartsCatalog.Models.Component component) {
-			// TODO
+			int quantity = item.Quantity;
+
+			// Combine the two components.
+			item.ID = component.ID;
+			item.Retrieve();
+
+			// Change the quantity and save.
+			item.Quantity += quantity;
+			item.Save();
 		}
 
 		/// <summary>
@@ -97,17 +176,22 @@ namespace OrderImporter {
 		/// <param name="item">Order item to get component with.</param>
 		/// <returns>Component in case one was found, <c>null</c> otherwise.</returns>
 		public PartsCatalog.Models.Component GetComponentFromItem(OrderItem item) {
-			PartsCatalog.Models.Component component = new PartsCatalog.Models.Component();
+			try {
+				// Get a component using its name.
+				PartsCatalog.Models.Component component =
+					new PartsCatalog.Models.Component(item.Name);
+				component.Retrieve();
 
-			// TODO
-
-			return component;
+				return component;
+			} catch {
+				return null;
+			}
 		}
 
 		/// <summary>
 		/// Updates the view when the current selected item has changed.
 		/// </summary>
-		private void CurrentItemChanged() {
+		private void UpdateItemView() {
 			// Quantity field.
 			updQuantity.DataBindings.Clear();
 			updQuantity.DataBindings.Add("Value", CurrentOrderItem, "Quantity",
@@ -123,24 +207,26 @@ namespace OrderImporter {
 			txtDescription.DataBindings.Add("Text", CurrentOrderItem, "Description",
 				true, DataSourceUpdateMode.OnPropertyChanged);
 
+			// Populate common controls.
+			commonComponentControls.PopulateWithComponent(false);
+
 			// Is this order item already in the system?
 			tsbImport.Enabled = !CurrentOrderItem.IsPersistent();
 			tsbViewComponent.Enabled = CurrentOrderItem.IsPersistent();
-
-			// Populate common controls.
-			commonComponentControls.PopulateWithComponent(false);
+			tsbCheckDatabase.Enabled = !CurrentOrderItem.IsPersistent();
+			panFields.Enabled = !CurrentOrderItem.IsPersistent();
+			panProperties.Enabled = !CurrentOrderItem.IsPersistent();
+			grdProperties.Enabled = !CurrentOrderItem.IsPersistent();
+			foreach (Control ctrl in panFields.Controls) {
+				ctrl.Enabled = !CurrentOrderItem.IsPersistent();
+			}
 		}
 
 		/// <summary>
 		/// Currently displayed order item.
 		/// </summary>
 		public OrderItem CurrentOrderItem {
-			get { return _currentItem; }
-			set {
-				_currentItem = value;
-				commonComponentControls.AssociatedComponent = _currentItem;
-				CurrentItemChanged();
-			}
+			get { return (OrderItem)bindingSource.Current; }
 		}
 
 		/******************
@@ -148,15 +234,24 @@ namespace OrderImporter {
 		 ******************/
 
 		private void bindingSource_CurrentChanged(object sender, EventArgs e) {
-			CurrentOrderItem = (OrderItem)bindingSource.Current;
+			commonComponentControls.AssociatedComponent = CurrentOrderItem;
+			UpdateItemView();
 		}
 
 		private void tsbImport_Click(object sender, EventArgs e) {
-			ImportItem((OrderItem)bindingSource.Current);
+			ImportItem(CurrentOrderItem);
 		}
 
 		private void tsbViewComponent_Click(object sender, EventArgs e) {
-			ShowComponent((OrderItem)bindingSource.Current);
+			ShowComponent(CurrentOrderItem);
+		}
+
+		private void toolStripButton1_Click(object sender, EventArgs e) {
+			CurrentOrderItem.OpenComponentPage();
+		}
+
+		private void tsbCheckDatabase_Click(object sender, EventArgs e) {
+			CheckDatabaseAndMerge(CurrentOrderItem, true);
 		}
 	}
 }

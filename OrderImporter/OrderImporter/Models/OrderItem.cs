@@ -38,6 +38,13 @@ namespace OrderImporter.Models {
 		public abstract string GetComponentPage();
 
 		/// <summary>
+		/// Opens the distributor website for this component.
+		/// </summary>
+		public void OpenComponentPage() {
+			System.Diagnostics.Process.Start(GetComponentPage());
+		}
+
+		/// <summary>
 		/// Distributor's part number for this component.
 		/// </summary>
 		public string DistributorPartNumber {
