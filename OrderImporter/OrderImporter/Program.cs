@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OrderImporter.Views;
 
 namespace OrderImporter {
 	static class Program {
@@ -11,7 +12,7 @@ namespace OrderImporter {
 		static void Main() {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			Application.Run(new OrderPickerForm());
 		}
 	}
 }

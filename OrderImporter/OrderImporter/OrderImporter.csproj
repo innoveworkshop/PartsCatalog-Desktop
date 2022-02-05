@@ -41,6 +41,7 @@
     <Compile Include="Models\GenericOrderItem.cs" />
     <Compile Include="Models\FarnellOrderItem.cs" />
     <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Services\DistributorOrder.cs" />
     <Compile Include="Services\FarnellOrder.cs" />
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
@@ -59,6 +60,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderPickerForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OrderPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -71,6 +76,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\OrderPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OrderPickerForm.Designer.cs">
+      <DependentUpon>OrderPickerForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
