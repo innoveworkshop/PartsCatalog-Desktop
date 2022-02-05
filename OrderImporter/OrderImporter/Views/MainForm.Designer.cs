@@ -1,4 +1,4 @@
-namespace OrderImporter {
+namespace OrderImporter.Views {
 	partial class MainForm {
 		/// <summary>
 		/// Required designer variable.

@@ -10,32 +10,23 @@ namespace OrderImporter.Services {
 	/// <summary>
 	/// Processes a Farnell order CSV file.
 	/// </summary>
-	public class FarnellOrder {
-		private string _filePath;
-		private BindingList<FarnellOrderItem> _items;
-
+	public class FarnellOrder : DistributorOrder<FarnellOrderItem> {
 		/// <summary>
 		/// Creates an empty Farnell order object.
 		/// </summary>
-		public FarnellOrder() {
-			Items = new BindingList<FarnellOrderItem>();
+		public FarnellOrder() : base() {
 		}
 
 		/// <summary>
 		/// Creates a Farnell order object from an order CSV file.
 		/// </summary>
 		/// <param name="filePath">Farnell order CSV file.</param>
-		public FarnellOrder(string filePath) : this() {
-			FilePath = filePath;
+		public FarnellOrder(string filePath) : base(filePath) {
 		}
 
-		/// <summary>
-		/// Parses the order file and populates the items list.
-		/// </summary>
-		private void ParseOrder() {
-			// Check if the file actually exists.
-			if (!File.Exists(FilePath))
-				throw new Exception("Order file path doesn't exist");
+		protected override void ParseOrder() {
+			// Do some things first.
+			base.ParseOrder();
 
 			// Setup the parser.
 			TextFieldParser parser = new TextFieldParser(FilePath);
@@ -68,25 +59,6 @@ namespace OrderImporter.Services {
 			// of the fields in the header populated for some obscure reason.
 			// So we can ignore all of those.
 			return fields.Length == 22;
-		}
-
-		/// <summary>
-		/// Path to the order's CSV file.
-		/// </summary>
-		public string FilePath {
-			get { return _filePath; }
-			set {
-				_filePath = value;
-				ParseOrder();
-			}
-		}
-
-		/// <summary>
-		/// List of items in the order.
-		/// </summary>
-		public BindingList<FarnellOrderItem> Items {
-			get { return _items; }
-			set { _items = value; }
 		}
 	}
 }

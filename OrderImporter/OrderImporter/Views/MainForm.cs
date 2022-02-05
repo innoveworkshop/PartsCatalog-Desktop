@@ -12,17 +12,16 @@ using PartsCatalog.DesktopForms.Utilities;
 using OrderImporter.Services;
 using OrderImporter.Models;
 
-namespace OrderImporter {
+namespace OrderImporter.Views {
 	/// <summary>
 	/// Main form of the application.
 	/// </summary>
 	public partial class MainForm : Form {
 		private CommonComponentControls commonComponentControls;
-		private FarnellOrder order;
 		private WebLoadingDialog dlgLoading;
 
 		/// <summary>
-		/// Initializes the form and its components.
+		/// Initializes an empty form and its components.
 		/// </summary>
 		public MainForm() {
 			InitializeComponent();
@@ -31,10 +30,16 @@ namespace OrderImporter {
 			commonComponentControls = new CommonComponentControls(this,
 				new PartsCatalog.Models.Component(), cmbCategory, cmbSubCategory,
 				cmbPackage, grdProperties);
+		}
 
-			// Create a test Farnell order and attach its items to a binding source.
-			order = new FarnellOrder(
-				@"\\MULBERRY\Master\Orders\Farnell\2021-06-09-ORDERLINEOrderDetail.csv");
+		/// <summary>
+		/// Sets the order to be imported by the form.
+		/// </summary>
+		/// <typeparam name="T">Type of order item that will be used in the
+		/// distributor's order object.</typeparam>
+		/// <param name="order">Order to be imported.</param>
+		public void SetOrder<T>(DistributorOrder<T> order) where T : OrderItem {
+			// Attach the order items to the navigation binding source.
 			navBinding.BindingSource.DataSource = order.Items;
 		}
 
