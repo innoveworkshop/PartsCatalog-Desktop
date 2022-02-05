@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PartsCatalog.Models;
 using PartsCatalog.DesktopForms.Views;
+using PartsCatalog.DesktopForms.Dialogs;
 using PartsCatalog.DesktopForms.Utilities;
 using OrderImporter.Services;
 using OrderImporter.Models;
@@ -18,6 +19,7 @@ namespace OrderImporter {
 	public partial class MainForm : Form {
 		private CommonComponentControls commonComponentControls;
 		private FarnellOrder order;
+		private WebLoadingDialog dlgLoading;
 
 		/// <summary>
 		/// Initializes the form and its components.
@@ -234,8 +236,13 @@ namespace OrderImporter {
 		 ******************/
 
 		private void bindingSource_CurrentChanged(object sender, EventArgs e) {
+			dlgLoading = new WebLoadingDialog();
+			dlgLoading.ShowFetching(this, "component '" + CurrentOrderItem.Name + "'");
+
 			commonComponentControls.AssociatedComponent = CurrentOrderItem;
 			UpdateItemView();
+
+			dlgLoading.Close();
 		}
 
 		private void tsbImport_Click(object sender, EventArgs e) {
@@ -246,7 +253,7 @@ namespace OrderImporter {
 			ShowComponent(CurrentOrderItem);
 		}
 
-		private void toolStripButton1_Click(object sender, EventArgs e) {
+		private void tsbDistributorWebsite_Click(object sender, EventArgs e) {
 			CurrentOrderItem.OpenComponentPage();
 		}
 

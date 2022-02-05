@@ -25,6 +25,9 @@ namespace OrderImporter {
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.navBinding = new System.Windows.Forms.BindingNavigator(this.components);
 			this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -39,7 +42,7 @@ namespace OrderImporter {
 			this.tsbImport = new System.Windows.Forms.ToolStripButton();
 			this.tsbViewComponent = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+			this.tsbDistributorWebsite = new System.Windows.Forms.ToolStripButton();
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
 			this.panFields = new System.Windows.Forms.Panel();
 			this.txtDatasheetURL = new System.Windows.Forms.TextBox();
@@ -88,7 +91,7 @@ namespace OrderImporter {
             this.tsbViewComponent,
             this.tsbCheckDatabase,
             this.toolStripSeparator1,
-            this.toolStripButton1});
+            this.tsbDistributorWebsite});
 			this.navBinding.Location = new System.Drawing.Point(0, 0);
 			this.navBinding.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
 			this.navBinding.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -197,16 +200,16 @@ namespace OrderImporter {
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
 			// 
-			// toolStripButton1
+			// tsbDistributorWebsite
 			// 
-			this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-			this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.toolStripButton1.Name = "toolStripButton1";
-			this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-			this.toolStripButton1.Text = "Distributor\'s Website";
-			this.toolStripButton1.ToolTipText = "Go to the distributor\'s website";
-			this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+			this.tsbDistributorWebsite.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbDistributorWebsite.Image = ((System.Drawing.Image)(resources.GetObject("tsbDistributorWebsite.Image")));
+			this.tsbDistributorWebsite.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbDistributorWebsite.Name = "tsbDistributorWebsite";
+			this.tsbDistributorWebsite.Size = new System.Drawing.Size(23, 22);
+			this.tsbDistributorWebsite.Text = "Distributor\'s Website";
+			this.tsbDistributorWebsite.ToolTipText = "Go to the distributor\'s website";
+			this.tsbDistributorWebsite.Click += new System.EventHandler(this.tsbDistributorWebsite_Click);
 			// 
 			// stpStatus
 			// 
@@ -387,11 +390,35 @@ namespace OrderImporter {
 			this.grdProperties.AllowUserToAddRows = false;
 			this.grdProperties.AllowUserToDeleteRows = false;
 			this.grdProperties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.grdProperties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.grdProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.grdProperties.DefaultCellStyle = dataGridViewCellStyle5;
 			this.grdProperties.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.grdProperties.Location = new System.Drawing.Point(0, 0);
 			this.grdProperties.Name = "grdProperties";
 			this.grdProperties.ReadOnly = true;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.grdProperties.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.grdProperties.RowHeadersVisible = false;
 			this.grdProperties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.grdProperties.Size = new System.Drawing.Size(411, 206);
@@ -468,7 +495,7 @@ namespace OrderImporter {
 		private System.Windows.Forms.TextBox txtDatasheetURL;
 		private System.Windows.Forms.Label lblDatasheetURL;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripButton toolStripButton1;
+		private System.Windows.Forms.ToolStripButton tsbDistributorWebsite;
 		private System.Windows.Forms.ToolStripButton tsbCheckDatabase;
 	}
 }
