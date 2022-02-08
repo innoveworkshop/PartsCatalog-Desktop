@@ -58,12 +58,6 @@
         "Entry"
         {
         "MsmKey" = "8:_DA6ACC35EB13D507A8EDD8BC681AA9D4"
-        "OwnerKey" = "8:_069B5F8FAAC744459CDE1FC45744A795"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DA6ACC35EB13D507A8EDD8BC681AA9D4"
         "OwnerKey" = "8:_F0555609B3E14E1AAA5A198F12C1452F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -82,19 +76,25 @@
         "Entry"
         {
         "MsmKey" = "8:_DA6ACC35EB13D507A8EDD8BC681AA9D4"
+        "OwnerKey" = "8:_069B5F8FAAC744459CDE1FC45744A795"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DA6ACC35EB13D507A8EDD8BC681AA9D4"
         "OwnerKey" = "8:_E5B4C895DF19A7862AE34E784927833C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E5B4C895DF19A7862AE34E784927833C"
-        "OwnerKey" = "8:_4D1BB0A347AE4B428B40508E102F32D3"
+        "OwnerKey" = "8:_069B5F8FAAC744459CDE1FC45744A795"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E5B4C895DF19A7862AE34E784927833C"
-        "OwnerKey" = "8:_069B5F8FAAC744459CDE1FC45744A795"
+        "OwnerKey" = "8:_4D1BB0A347AE4B428B40508E102F32D3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,7 +112,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_84C34066467D1918AEF6F6F0AC0DF466"
+        "OwnerKey" = "8:_F0555609B3E14E1AAA5A198F12C1452F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_59D51A66D43C483E885B08E71E2BE1D9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,13 +136,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F0555609B3E14E1AAA5A198F12C1452F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_59D51A66D43C483E885B08E71E2BE1D9"
+        "OwnerKey" = "8:_84C34066467D1918AEF6F6F0AC0DF466"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -465,14 +465,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PartsCatalog"
-        "ProductCode" = "8:{1E5EC9D2-82F0-4DEC-95FB-758894BE4211}"
-        "PackageCode" = "8:{A60E0279-E86F-40E3-A09F-71D5ADEDE4BD}"
+        "ProductCode" = "8:{4F61C95E-0330-44CF-9A42-80D9120E9AEC}"
+        "PackageCode" = "8:{89C26FF2-364A-4918-8459-1C0A1CE24EC0}"
         "UpgradeCode" = "8:{E62FD33E-7AB9-4484-93F5-D027E300D352}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Innove Workshop"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
