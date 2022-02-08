@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using PartsCatalog.Models;
+using HtmlAgilityPack;
 
 namespace OrderImporter.Models {
 	/// <summary>
@@ -14,8 +15,13 @@ namespace OrderImporter.Models {
 		public RobertMauserOrderItem() : base() {
 		}
 
-		public RobertMauserOrderItem(string[] fields) : base(fields) {
-			throw new Exception("Robert Mauser Lda orders do not come as CSV files");
+		/// <summary>
+		/// Creates a Robert Mauser Lda component order item and populates it
+		/// from an HTML node.
+		/// </summary>
+		/// <param name="node">Order item HTML node.</param>
+		public RobertMauserOrderItem(HtmlNode node) : base() {
+			ImportFromHTML(node);
 		}
 
 		/// <summary>
@@ -42,22 +48,28 @@ namespace OrderImporter.Models {
 			}
 		}
 
+		/// <summary>
+		/// Populates this object with data from an HTML node.
+		/// </summary>
+		/// <param name="node">Order item HTML node.</param>
+		public void ImportFromHTML(HtmlNode node) {
+			// Do some primitive parsing.
+			string descHtml = node.SelectSingleNode("./td[2]").InnerHtml;
+			string[] fields = descHtml.Split(new string[] { "<br>" }, 2,
+				StringSplitOptions.RemoveEmptyEntries);
+			string strQnt = node.SelectSingleNode("./td[3]").InnerHtml.Split(' ')[0];
+
+			// Populate the object.
+			DistributorPartNumber = fields[0].Trim();
+			Description = fields[1].Trim();
+			Quantity = int.Parse(strQnt);
+		}
+
+		/// <summary>
+		/// DO NOT USE THIS. Mauser orders do not come in CSV format.
+		/// </summary>
 		public override void ImportFromCSV(string[] fields) {
-#if DEBUG
-			for (int i = 0; i < fields.Length; i++) {
-				System.Diagnostics.Debug.WriteLine("Field #" + i + ": " +
-					fields[i]);
-			}
-
-			System.Diagnostics.Debug.WriteLine("");
-#endif
-			// Order item properties.
-			DistributorPartNumber = fields[13];
-
-			// Component properties.
-			Name = fields[18];
-			Quantity = (int)float.Parse(fields[19]);
-			ParseDescription(fields[16]);
+			throw new Exception("Robert Mauser Lda orders do not come as CSV files");
 		}
 
 		public override string GetComponentPage() {
