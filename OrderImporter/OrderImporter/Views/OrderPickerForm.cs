@@ -40,9 +40,11 @@ namespace OrderImporter.Views {
 			// Setup the open file dialog.
 			dlgOpenFile.Filter = "CSV File|*.csv|Email Export|*.eml|All Files|*.*";
 
+#if DEBUG
 			// Use a sample Mauser order for testing.
 			FilePath = @"\\MULBERRY\Master\Orders\MauserExample.eml";
 			cmbDistributor.SelectedIndex = 1;
+#endif
 		}
 
 		/// <summary>
