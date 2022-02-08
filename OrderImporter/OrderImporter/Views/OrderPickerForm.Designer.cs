@@ -45,7 +45,7 @@ namespace OrderImporter.Views {
 			// 
 			// stpStatus
 			// 
-			this.stpStatus.Location = new System.Drawing.Point(0, 122);
+			this.stpStatus.Location = new System.Drawing.Point(0, 111);
 			this.stpStatus.Name = "stpStatus";
 			this.stpStatus.Size = new System.Drawing.Size(557, 22);
 			this.stpStatus.TabIndex = 0;
@@ -63,7 +63,7 @@ namespace OrderImporter.Views {
 			this.panOrderSelector.Controls.Add(this.lblSelDistributor);
 			this.panOrderSelector.Location = new System.Drawing.Point(9, 27);
 			this.panOrderSelector.Name = "panOrderSelector";
-			this.panOrderSelector.Size = new System.Drawing.Size(539, 89);
+			this.panOrderSelector.Size = new System.Drawing.Size(539, 78);
 			this.panOrderSelector.TabIndex = 1;
 			// 
 			// btnBrowseOrder
@@ -166,9 +166,9 @@ namespace OrderImporter.Views {
 			// 
 			this.btnImportOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.btnImportOrder.Location = new System.Drawing.Point(0, 47);
+			this.btnImportOrder.Location = new System.Drawing.Point(0, 45);
 			this.btnImportOrder.Name = "btnImportOrder";
-			this.btnImportOrder.Size = new System.Drawing.Size(539, 42);
+			this.btnImportOrder.Size = new System.Drawing.Size(539, 33);
 			this.btnImportOrder.TabIndex = 25;
 			this.btnImportOrder.Text = "Import Order";
 			this.btnImportOrder.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@ namespace OrderImporter.Views {
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(557, 144);
+			this.ClientSize = new System.Drawing.Size(557, 133);
 			this.Controls.Add(this.panOrderSelector);
 			this.Controls.Add(this.stpStatus);
 			this.Controls.Add(this.stpMenu);

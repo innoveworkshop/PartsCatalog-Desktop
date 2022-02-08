@@ -16,10 +16,12 @@ namespace OrderImporter.Views {
 		// Supported distributors helper variables.
 		public enum SupportedDistributors {
 			Invalid = -1,
-			FarnellPT = 0
+			FarnellPT = 0,
+			RobertMauser
 		};
 		private string[] _supportedDistributorNames = {
-			"Farnell (PT)"
+			"Farnell (PT)",
+			"Robert Mauser Lda"
 		};
 		public enum SupportedExtensions {
 			CSV = 0,
@@ -38,8 +40,9 @@ namespace OrderImporter.Views {
 			// Setup the open file dialog.
 			dlgOpenFile.Filter = "CSV File|*.csv|Email Export|*.eml|All Files|*.*";
 
-			// Use a sample Farnell order for testing.
-			FilePath = @"\\MULBERRY\Master\Orders\Farnell\2021-06-09-ORDERLINEOrderDetail.csv";
+			// Use a sample Mauser order for testing.
+			FilePath = @"\\MULBERRY\Master\Orders\MauserExample.eml";
+			cmbDistributor.SelectedIndex = 1;
 		}
 
 		/// <summary>
@@ -54,6 +57,11 @@ namespace OrderImporter.Views {
 			case SupportedDistributors.FarnellPT:
 				// Farnell (PT)
 				frmMain.SetOrder<FarnellOrderItem>(new FarnellOrder(FilePath));
+				break;
+			case SupportedDistributors.RobertMauser:
+				// Robert Mauser Lda
+				frmMain.SetOrder<RobertMauserOrderItem>(
+					new RobertMauserOrder(FilePath));
 				break;
 			default:
 				MessageBox.Show("You need to specify a supported distributor " +
@@ -80,6 +88,10 @@ namespace OrderImporter.Views {
 			case SupportedDistributors.FarnellPT:
 				// Farnell (PT)
 				SetOpenDialogFilter(SupportedExtensions.CSV);
+				break;
+			case SupportedDistributors.RobertMauser:
+				// Robert Mauser Lda
+				SetOpenDialogFilter(SupportedExtensions.EML);
 				break;
 			default:
 				SetOpenDialogFilter(SupportedExtensions.AllFiles);
