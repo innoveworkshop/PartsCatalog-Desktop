@@ -36,6 +36,8 @@ namespace PartsCatalog.Browsers.Views {
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.grdResults = new System.Windows.Forms.DataGridView();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stpStatus.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
@@ -76,6 +78,8 @@ namespace PartsCatalog.Browsers.Views {
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -84,7 +88,7 @@ namespace PartsCatalog.Browsers.Views {
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
@@ -193,6 +197,18 @@ namespace PartsCatalog.Browsers.Views {
 			this.grdResults.TabIndex = 0;
 			this.grdResults.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdResults_CellMouseDoubleClick);
 			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+			// 
+			// refreshToolStripMenuItem
+			// 
+			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.refreshToolStripMenuItem.Text = "&Refresh";
+			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +252,8 @@ namespace PartsCatalog.Browsers.Views {
 		private System.Windows.Forms.ListBox lstSubCategories;
 		private System.Windows.Forms.Label lblSubCategories;
 		private System.Windows.Forms.ToolStripStatusLabel tslServer;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
 
 	}
 }

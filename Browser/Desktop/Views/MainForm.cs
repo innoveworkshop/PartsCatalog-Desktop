@@ -49,33 +49,29 @@ namespace PartsCatalog.Browsers.Views {
 		/// Sets up all of the grid columns and their styles.
 		/// </summary>
 		private void SetupGridColumns() {
-			// ID
-			grdResults.Columns["ID"].DisplayIndex = 0;
-			grdResults.Columns["ID"].Width = 35;
+			// Quantity
+			grdResults.Columns["Quantity"].DisplayIndex = 0;
+			grdResults.Columns["Quantity"].Width = 45;
+			grdResults.Columns["Quantity"].HeaderText = "Qnt";
 
 			// Name
 			grdResults.Columns["Name"].DisplayIndex = 1;
 			grdResults.Columns["Name"].Width = 100;
 
-			// Quantity
-			grdResults.Columns["Quantity"].DisplayIndex = 2;
-			grdResults.Columns["Quantity"].Width = 45;
-			grdResults.Columns["Quantity"].HeaderText = "Qnt";
-
 			// Description
-			grdResults.Columns["Description"].DisplayIndex = 3;
+			grdResults.Columns["Description"].DisplayIndex = 2;
 			grdResults.Columns["Description"].Width = 255;
 
 			// Package
-			grdResults.Columns["Package"].DisplayIndex = 4;
+			grdResults.Columns["Package"].DisplayIndex = 3;
 			grdResults.Columns["Package"].Width = 80;
 
 			// Category
-			grdResults.Columns["Category"].DisplayIndex = 5;
+			grdResults.Columns["Category"].DisplayIndex = 4;
 			grdResults.Columns["Category"].Width = 115;
 
 			// Sub-Category
-			grdResults.Columns["SubCategory"].DisplayIndex = 6;
+			grdResults.Columns["SubCategory"].DisplayIndex = 5;
 			grdResults.Columns["SubCategory"].Width = 115;
 			grdResults.Columns["SubCategory"].HeaderText = "Sub-Category";
 
@@ -84,6 +80,10 @@ namespace PartsCatalog.Browsers.Views {
 
 			// Datasheet
 			grdResults.Columns["Datasheet"].Visible = false;
+
+			// ID
+			grdResults.Columns["ID"].DisplayIndex = 8;
+			grdResults.Columns["ID"].Width = 35;
 		}
 
 		/// <summary>
@@ -91,6 +91,12 @@ namespace PartsCatalog.Browsers.Views {
 		/// </summary>
 		public void RefreshCategoriesList() {
 			new Category().List(categories);
+
+			// Select the first one just to show the user something.
+			if (categories.Count > 0) {
+				lstCategories.SelectedIndex = -1;
+				lstCategories.SelectedIndex = 0;
+			}
 		}
 
 		/// <summary>
@@ -101,9 +107,19 @@ namespace PartsCatalog.Browsers.Views {
 			// Start with a blank slate.
 			subCategories.Clear();
 
+			// Do nothing if the category is null.
+			if (category == null)
+				return;
+
 			// Go through sub-categories filling the local object.
 			foreach (SubCategory subCategory in category.SubCategories) {
 				subCategories.Add(subCategory);
+			}
+
+			// Select the first one just to show the user something.
+			if (subCategories.Count > 0) {
+				lstSubCategories.SelectedIndex = -1;
+				lstSubCategories.SelectedIndex = 0;
 			}
 		}
 
@@ -151,8 +167,6 @@ namespace PartsCatalog.Browsers.Views {
 
 		private void lstCategories_SelectedIndexChanged(object sender, EventArgs e) {
 			PopulateSubCategoriesList((Category)lstCategories.SelectedItem);
-			//PopulateComponentsGrid<Category>((Category)lstCategories.SelectedItem,
-			//	"category");
 		}
 
 		private void lstSubCategories_SelectedIndexChanged(object sender, EventArgs e) {
@@ -164,6 +178,11 @@ namespace PartsCatalog.Browsers.Views {
 			ComponentForm form = new ComponentForm(
 				(PartsCatalog.Models.Component)grdResults.CurrentRow.DataBoundItem);
 			form.Show();
+		}
+
+		private void refreshToolStripMenuItem_Click(object sender, EventArgs e) {
+			partsComponents.Clear();
+			RefreshCategoriesList();
 		}
 	}
 }
