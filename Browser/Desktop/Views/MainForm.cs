@@ -160,7 +160,7 @@ namespace PartsCatalog.Browsers.Views {
 				"subcategory");
 		}
 
-		private void grdResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e) {
+		private void grdResults_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) {
 			ComponentForm form = new ComponentForm(
 				(PartsCatalog.Models.Component)grdResults.CurrentRow.DataBoundItem);
 			form.Show();

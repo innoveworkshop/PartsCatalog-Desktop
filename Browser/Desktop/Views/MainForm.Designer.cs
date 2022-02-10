@@ -25,6 +25,7 @@ namespace PartsCatalog.Browsers.Views {
 		private void InitializeComponent() {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.stpMenu = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,7 +36,6 @@ namespace PartsCatalog.Browsers.Views {
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.grdResults = new System.Windows.Forms.DataGridView();
-			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.stpStatus.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
@@ -56,6 +56,12 @@ namespace PartsCatalog.Browsers.Views {
 			this.stpStatus.Size = new System.Drawing.Size(769, 22);
 			this.stpStatus.TabIndex = 1;
 			this.stpStatus.Text = "statusStrip1";
+			// 
+			// tslServer
+			// 
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
 			// 
 			// stpMenu
 			// 
@@ -185,13 +191,7 @@ namespace PartsCatalog.Browsers.Views {
 			this.grdResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.grdResults.Size = new System.Drawing.Size(534, 489);
 			this.grdResults.TabIndex = 0;
-			this.grdResults.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdResults_CellContentDoubleClick);
-			// 
-			// tslServer
-			// 
-			this.tslServer.Name = "tslServer";
-			this.tslServer.Size = new System.Drawing.Size(74, 17);
-			this.tslServer.Text = "Server Name";
+			this.grdResults.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdResults_CellMouseDoubleClick);
 			// 
 			// MainForm
 			// 
