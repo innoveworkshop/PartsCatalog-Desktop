@@ -60,7 +60,8 @@ namespace ProjectManager {
 		/// Populates the project control group with data from the specified object.
 		/// </summary>
 		/// <param name="project">Project that will be edited.</param>
-		public void PopulateProjectGroup(Project project) {
+		/// <param name="retrieveProject">Force retrieve the project object?</param>
+		public void PopulateProjectGroup(Project project, bool retrieveProject) {
 			// Reset the control bindings.
 			lblProjectID.DataBindings.Clear();
 			txtProjectName.DataBindings.Clear();
@@ -77,9 +78,13 @@ namespace ProjectManager {
 				txtProjectRevision.Text = "";
 				txtProjectDescription.Text = "";
 
-				PopulateProjectBOMList(null, null);
+				PopulateProjectBOMList(null, null, false);
 				return;
 			}
+
+			// Should we retrieve the project object again?
+			if (retrieveProject)
+				project.Retrieve();
 
 			// Bind data to fields.
 			lblProjectID.DataBindings.Add("Text", project, "ID", true,
@@ -96,7 +101,7 @@ namespace ProjectManager {
 			btnProjectRemove.Enabled = true;
 
 			// Populate the BOM list.
-			PopulateProjectBOMList(project, null);
+			PopulateProjectBOMList(project, null, retrieveProject);
 		}
 
 		/// <summary>
@@ -104,7 +109,9 @@ namespace ProjectManager {
 		/// </summary>
 		/// <param name="project">Project that will be used to get a BOM from.</param>
 		/// <param name="selected">Pre-selected BOM item.</param>
-		public void PopulateProjectBOMList(Project project, BOMItem selected) {
+		/// <param name="retrieveProject">Force retrieve the project object?</param>
+		public void PopulateProjectBOMList(Project project, BOMItem selected,
+										   bool retrieveProject) {
 			bomItems.Clear();
 			PopulateBOMItemGroup(null);
 
@@ -118,14 +125,30 @@ namespace ProjectManager {
 				return;
 			}
 
+			// Should we retrieve the project object again?
+			if (retrieveProject)
+				project.Retrieve();
+
 			// Go through the BOM populating the list.
 			foreach (BOMItem item in project.BOM) {
 				bomItems.Add(item);
 			}
 
 			// Select the BOM item if needed.
-			if (selected != null)
-				PopulateBOMItemGroup(selected);
+			lstBOMItems.SelectedIndex = -1;
+			if (selected != null) {
+				// Select the item that we were asked to select.
+				for (int i = 0; i < bomItems.Count; i++) {
+					if (bomItems[0].ID == selected.ID) {
+						lstBOMItems.SelectedIndex = i;
+						break;
+					}
+				}
+			} else {
+				// Looks like we've just loaded in the list, so just select the first item.
+				if (lstBOMItems.Items.Count > 0)
+					lstBOMItems.SelectedIndex = 0;
+			}
 
 			// Enable the controls that are now useful.
 			btnItemAdd.Enabled = true;
@@ -258,23 +281,13 @@ namespace ProjectManager {
 		/// </summary>
 		/// <param name="project">BOM item's parent project.</param>
 		public void AddBOMItem(Project project) {
+			// Create a brand new BOM item.
 			BOMItem item = new BOMItem();
 			item.Parent = project;
-			item.RefDes = new List<string>(refDesignators);
-			if (lblComponentName.DataBindings.Count == 1) {
-				if (lblComponentName.DataBindings[0] != null) {
-					item.Part = (PartsCatalog.Models.Component)
-						lblComponentName.DataBindings[0].DataSource;
-				}
-			}
-			item.Save();
-
-			// Append the new BOM item to the list.
-			if (item.IsPersistent()) {
-				project.BOM.Add(item);
-				bomItems.Add(item);
-				PopulateProjectBOMList(project, item);
-			}
+			
+			// Add it to the list and select it.
+			bomItems.Add(item);
+			lstBOMItems.SelectedIndex = bomItems.Count - 1;
 		}
 
 		/// <summary>
@@ -293,7 +306,7 @@ namespace ProjectManager {
 
 			// Save and reload the form.
 			item.Save();
-			PopulateProjectBOMList(item.Parent, item);
+			PopulateProjectBOMList(item.Parent, item, true);
 		}
 
 		/// <summary>
@@ -312,7 +325,7 @@ namespace ProjectManager {
 			Project parent = item.Parent;
 			bomItems.Remove(item);
 			item.Delete();
-			PopulateProjectBOMList(parent, null);
+			PopulateProjectBOMList(parent, null, true);
 		}
 
 		/// <summary>
@@ -367,7 +380,7 @@ namespace ProjectManager {
 			if (project == null)
 				return;
 
-			PopulateProjectGroup(project);
+			PopulateProjectGroup(project, true);
 		}
 
 		private void lstBOMItems_SelectedIndexChanged(object sender, EventArgs e) {
@@ -397,7 +410,7 @@ namespace ProjectManager {
 		private void btnItemAdd_Click(object sender, EventArgs e) {
 			Project project = (Project)lstProjects.SelectedItem;
 			if (project == null)
-				return;
+				throw new Exception("Can't add a BOM item if a project isn't selected");
 
 			AddBOMItem(project);
 		}
