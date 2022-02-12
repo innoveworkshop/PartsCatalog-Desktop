@@ -195,7 +195,6 @@ namespace PartsCatalog.Browsers.Views {
 			this.grdResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.grdResults.Size = new System.Drawing.Size(534, 489);
 			this.grdResults.TabIndex = 0;
-			this.grdResults.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdResults_CellMouseDoubleClick);
 			// 
 			// toolStripMenuItem1
 			// 

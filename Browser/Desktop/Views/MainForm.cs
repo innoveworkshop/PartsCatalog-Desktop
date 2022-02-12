@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using PartsCatalog.Models;
 using PartsCatalog.DesktopForms.Views;
-using System.Reflection;
+using PartsCatalog.DesktopForms.Utilities;
 
 namespace PartsCatalog.Browsers.Views {
 	/// <summary>
@@ -16,7 +16,7 @@ namespace PartsCatalog.Browsers.Views {
 	public partial class MainForm : Form {
 		private BindingList<Category> categories;
 		private BindingList<SubCategory> subCategories;
-		private BindingList<PartsCatalog.Models.Component> partsComponents;
+		private ComponentGridHelper gridHelper;
 
 		/// <summary>
 		/// Initializes the form and its components.
@@ -24,7 +24,6 @@ namespace PartsCatalog.Browsers.Views {
 		public MainForm() {
 			categories = new BindingList<Category>();
 			subCategories = new BindingList<SubCategory>();
-			partsComponents = new BindingList<PartsCatalog.Models.Component>();
 			InitializeComponent();
 
 			// Setup the categories list data source.
@@ -37,53 +36,9 @@ namespace PartsCatalog.Browsers.Views {
 			lstSubCategories.DisplayMember = "Name";
 			lstSubCategories.ValueMember = "ID";
 
-			// Setup the components table data source.
-			grdResults.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-			grdResults.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.EnableResizing;
-			SetupGridDoubleBuffering(grdResults);
-			grdResults.DataSource = partsComponents;
-			SetupGridColumns();
-		}
-
-		/// <summary>
-		/// Sets up all of the grid columns and their styles.
-		/// </summary>
-		private void SetupGridColumns() {
-			// Quantity
-			grdResults.Columns["Quantity"].DisplayIndex = 0;
-			grdResults.Columns["Quantity"].Width = 45;
-			grdResults.Columns["Quantity"].HeaderText = "Qnt";
-
-			// Name
-			grdResults.Columns["Name"].DisplayIndex = 1;
-			grdResults.Columns["Name"].Width = 100;
-
-			// Description
-			grdResults.Columns["Description"].DisplayIndex = 2;
-			grdResults.Columns["Description"].Width = 255;
-
-			// Package
-			grdResults.Columns["Package"].DisplayIndex = 3;
-			grdResults.Columns["Package"].Width = 80;
-
-			// Category
-			grdResults.Columns["Category"].DisplayIndex = 4;
-			grdResults.Columns["Category"].Width = 115;
-
-			// Sub-Category
-			grdResults.Columns["SubCategory"].DisplayIndex = 5;
-			grdResults.Columns["SubCategory"].Width = 115;
-			grdResults.Columns["SubCategory"].HeaderText = "Sub-Category";
-
-			// Picture
-			grdResults.Columns["Picture"].Visible = false;
-
-			// Datasheet
-			grdResults.Columns["Datasheet"].Visible = false;
-
-			// ID
-			grdResults.Columns["ID"].DisplayIndex = 8;
-			grdResults.Columns["ID"].Width = 35;
+			// Setup the components table.
+			gridHelper = new ComponentGridHelper(grdResults);
+			gridHelper.SetupDefaultDoubleClickEvent();
 		}
 
 		/// <summary>
@@ -123,35 +78,6 @@ namespace PartsCatalog.Browsers.Views {
 			}
 		}
 
-		/// <summary>
-		/// Populates the components table view with data from a specific criteria.
-		/// </summary>
-		/// <param name="criteria">Object that will be used as criteria for fetching the
-		/// components via the <see cref="PartsCatalog.Models.List<T>"/> call.</param>
-		/// <param name="queryParam">URL parameter query name.</param>
-		public void PopulateComponentsGrid<T>(RemoteObject<T> criteria, string queryParam)
-				where T : RemoteObject<T>, new() {
-			if (criteria == null)
-				return;
-
-			new PartsCatalog.Models.Component().List<T>(partsComponents, queryParam, criteria);
-		}
-
-		/// <summary>
-		/// Enables double buffering to improve the performance in a <see cref="DataGridView"/>
-		/// </summary>
-		/// <param name="gridView">Grid view to have double buffering enabled.</param>
-		private void SetupGridDoubleBuffering(DataGridView gridView) {
-			// Make sure we are not running under Remote Desktop.
-			if (!System.Windows.Forms.SystemInformation.TerminalServerSession) {
-				Type dgvType = gridView.GetType();
-
-				PropertyInfo pi = dgvType.GetProperty("DoubleBuffered",
-					BindingFlags.Instance | BindingFlags.NonPublic);
-				pi.SetValue(gridView, true, null);
-			}
-		}
-
 		/******************
 		 * Event Handlers *
 		 ******************/
@@ -170,18 +96,12 @@ namespace PartsCatalog.Browsers.Views {
 		}
 
 		private void lstSubCategories_SelectedIndexChanged(object sender, EventArgs e) {
-			PopulateComponentsGrid<SubCategory>((SubCategory)lstSubCategories.SelectedItem,
+			gridHelper.PopulateWithCriteria<SubCategory>((SubCategory)lstSubCategories.SelectedItem,
 				"subcategory");
 		}
 
-		private void grdResults_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e) {
-			ComponentForm form = new ComponentForm(
-				(PartsCatalog.Models.Component)grdResults.CurrentRow.DataBoundItem);
-			form.Show();
-		}
-
 		private void refreshToolStripMenuItem_Click(object sender, EventArgs e) {
-			partsComponents.Clear();
+			gridHelper.Clear();
 			RefreshCategoriesList();
 		}
 	}
