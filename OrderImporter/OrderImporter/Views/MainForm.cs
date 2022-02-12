@@ -78,6 +78,10 @@ namespace OrderImporter.Views {
 			if (!item.IsValid()) {
 				item.Save();
 
+				// Save the component properties.
+				foreach (Property property in item.Properties)
+					property.Save();
+
 				// Download the datasheet if needed.
 				if (txtDatasheetURL.Text.Length > 0) {
 					CurrentOrderItem.Datasheet.AssociatedComponent = CurrentOrderItem;
@@ -239,6 +243,10 @@ namespace OrderImporter.Views {
 		/******************
 		 * Event Handlers *
 		 ******************/
+
+		private void MainForm_Load(object sender, EventArgs e) {
+			tslServer.Text = PartsCatalog.Configuration.Domain;
+		}
 
 		private void bindingSource_CurrentChanged(object sender, EventArgs e) {
 			dlgLoading = new WebLoadingDialog();

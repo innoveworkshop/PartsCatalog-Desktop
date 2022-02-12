@@ -41,6 +41,7 @@ namespace OrderImporter.Views {
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbImport = new System.Windows.Forms.ToolStripButton();
 			this.tsbViewComponent = new System.Windows.Forms.ToolStripButton();
+			this.tsbCheckDatabase = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.tsbDistributorWebsite = new System.Windows.Forms.ToolStripButton();
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
@@ -61,10 +62,11 @@ namespace OrderImporter.Views {
 			this.lblQuantity = new System.Windows.Forms.Label();
 			this.panProperties = new System.Windows.Forms.Panel();
 			this.grdProperties = new System.Windows.Forms.DataGridView();
-			this.tsbCheckDatabase = new System.Windows.Forms.ToolStripButton();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			((System.ComponentModel.ISupportInitialize)(this.navBinding)).BeginInit();
 			this.navBinding.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource)).BeginInit();
+			this.stpStatus.SuspendLayout();
 			this.panFields.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.updQuantity)).BeginInit();
 			this.panProperties.SuspendLayout();
@@ -195,6 +197,17 @@ namespace OrderImporter.Views {
 			this.tsbViewComponent.Text = "View Component";
 			this.tsbViewComponent.Click += new System.EventHandler(this.tsbViewComponent_Click);
 			// 
+			// tsbCheckDatabase
+			// 
+			this.tsbCheckDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbCheckDatabase.Image = ((System.Drawing.Image)(resources.GetObject("tsbCheckDatabase.Image")));
+			this.tsbCheckDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.tsbCheckDatabase.Name = "tsbCheckDatabase";
+			this.tsbCheckDatabase.Size = new System.Drawing.Size(23, 22);
+			this.tsbCheckDatabase.Text = "Check in Database";
+			this.tsbCheckDatabase.ToolTipText = "Check if there\'s an approximate component in the database";
+			this.tsbCheckDatabase.Click += new System.EventHandler(this.tsbCheckDatabase_Click);
+			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -213,6 +226,8 @@ namespace OrderImporter.Views {
 			// 
 			// stpStatus
 			// 
+			this.stpStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslServer});
 			this.stpStatus.Location = new System.Drawing.Point(0, 422);
 			this.stpStatus.Name = "stpStatus";
 			this.stpStatus.Size = new System.Drawing.Size(428, 22);
@@ -424,16 +439,11 @@ namespace OrderImporter.Views {
 			this.grdProperties.Size = new System.Drawing.Size(411, 206);
 			this.grdProperties.TabIndex = 1;
 			// 
-			// tsbCheckDatabase
+			// tslServer
 			// 
-			this.tsbCheckDatabase.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbCheckDatabase.Image = ((System.Drawing.Image)(resources.GetObject("tsbCheckDatabase.Image")));
-			this.tsbCheckDatabase.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.tsbCheckDatabase.Name = "tsbCheckDatabase";
-			this.tsbCheckDatabase.Size = new System.Drawing.Size(23, 22);
-			this.tsbCheckDatabase.Text = "Check in Database";
-			this.tsbCheckDatabase.ToolTipText = "Check if there\'s an approximate component in the database";
-			this.tsbCheckDatabase.Click += new System.EventHandler(this.tsbCheckDatabase_Click);
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
 			// 
 			// MainForm
 			// 
@@ -447,10 +457,13 @@ namespace OrderImporter.Views {
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "Order Importer";
+			this.Load += new System.EventHandler(this.MainForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.navBinding)).EndInit();
 			this.navBinding.ResumeLayout(false);
 			this.navBinding.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.bindingSource)).EndInit();
+			this.stpStatus.ResumeLayout(false);
+			this.stpStatus.PerformLayout();
 			this.panFields.ResumeLayout(false);
 			this.panFields.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.updQuantity)).EndInit();
@@ -497,6 +510,7 @@ namespace OrderImporter.Views {
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripButton tsbDistributorWebsite;
 		private System.Windows.Forms.ToolStripButton tsbCheckDatabase;
+		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 	}
 }
 

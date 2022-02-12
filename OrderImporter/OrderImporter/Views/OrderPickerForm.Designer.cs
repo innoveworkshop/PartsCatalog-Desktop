@@ -26,6 +26,7 @@ namespace OrderImporter.Views {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderPickerForm));
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
 			this.panOrderSelector = new System.Windows.Forms.Panel();
+			this.btnImportOrder = new System.Windows.Forms.Button();
 			this.btnBrowseOrder = new System.Windows.Forms.Button();
 			this.txtOrderFile = new System.Windows.Forms.TextBox();
 			this.lblExportedOrderFile = new System.Windows.Forms.Label();
@@ -38,13 +39,16 @@ namespace OrderImporter.Views {
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.importOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.btnImportOrder = new System.Windows.Forms.Button();
+			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
+			this.stpStatus.SuspendLayout();
 			this.panOrderSelector.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// stpStatus
 			// 
+			this.stpStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tslServer});
 			this.stpStatus.Location = new System.Drawing.Point(0, 111);
 			this.stpStatus.Name = "stpStatus";
 			this.stpStatus.Size = new System.Drawing.Size(557, 22);
@@ -65,6 +69,18 @@ namespace OrderImporter.Views {
 			this.panOrderSelector.Name = "panOrderSelector";
 			this.panOrderSelector.Size = new System.Drawing.Size(539, 78);
 			this.panOrderSelector.TabIndex = 1;
+			// 
+			// btnImportOrder
+			// 
+			this.btnImportOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.btnImportOrder.Location = new System.Drawing.Point(0, 45);
+			this.btnImportOrder.Name = "btnImportOrder";
+			this.btnImportOrder.Size = new System.Drawing.Size(539, 33);
+			this.btnImportOrder.TabIndex = 25;
+			this.btnImportOrder.Text = "Import Order";
+			this.btnImportOrder.UseVisualStyleBackColor = true;
+			this.btnImportOrder.Click += new System.EventHandler(this.btnImportOrder_Click);
 			// 
 			// btnBrowseOrder
 			// 
@@ -162,17 +178,11 @@ namespace OrderImporter.Views {
 			this.importOrderToolStripMenuItem.Text = "&Import Order";
 			this.importOrderToolStripMenuItem.Click += new System.EventHandler(this.importOrderToolStripMenuItem_Click);
 			// 
-			// btnImportOrder
+			// tslServer
 			// 
-			this.btnImportOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-						| System.Windows.Forms.AnchorStyles.Right)));
-			this.btnImportOrder.Location = new System.Drawing.Point(0, 45);
-			this.btnImportOrder.Name = "btnImportOrder";
-			this.btnImportOrder.Size = new System.Drawing.Size(539, 33);
-			this.btnImportOrder.TabIndex = 25;
-			this.btnImportOrder.Text = "Import Order";
-			this.btnImportOrder.UseVisualStyleBackColor = true;
-			this.btnImportOrder.Click += new System.EventHandler(this.btnImportOrder_Click);
+			this.tslServer.Name = "tslServer";
+			this.tslServer.Size = new System.Drawing.Size(74, 17);
+			this.tslServer.Text = "Server Name";
 			// 
 			// OrderPickerForm
 			// 
@@ -187,6 +197,9 @@ namespace OrderImporter.Views {
 			this.MaximizeBox = false;
 			this.Name = "OrderPickerForm";
 			this.Text = "Order Importer";
+			this.Load += new System.EventHandler(this.OrderPickerForm_Load);
+			this.stpStatus.ResumeLayout(false);
+			this.stpStatus.PerformLayout();
 			this.panOrderSelector.ResumeLayout(false);
 			this.panOrderSelector.PerformLayout();
 			this.stpMenu.ResumeLayout(false);
@@ -213,5 +226,6 @@ namespace OrderImporter.Views {
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem importOrderToolStripMenuItem;
 		private System.Windows.Forms.Button btnImportOrder;
+		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 	}
 }

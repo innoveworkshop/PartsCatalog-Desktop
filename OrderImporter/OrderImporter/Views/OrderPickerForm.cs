@@ -159,6 +159,10 @@ namespace OrderImporter.Views {
 		 * Event Handlers *
 		 ******************/
 
+		private void OrderPickerForm_Load(object sender, EventArgs e) {
+			tslServer.Text = PartsCatalog.Configuration.Domain;
+		}
+
 		private void importOrderToolStripMenuItem_Click(object sender, EventArgs e) {
 			ImportOrder();
 		}
