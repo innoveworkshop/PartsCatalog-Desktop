@@ -332,6 +332,7 @@ namespace ProjectManager {
 			this.txtRefDes.Name = "txtRefDes";
 			this.txtRefDes.Size = new System.Drawing.Size(90, 20);
 			this.txtRefDes.TabIndex = 19;
+			this.txtRefDes.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRefDes_KeyPress);
 			// 
 			// lstRefDes
 			// 

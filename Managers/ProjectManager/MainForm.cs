@@ -507,5 +507,10 @@ namespace ProjectManager {
 		private void selectComponentToolStripMenuItem_Click(object sender, EventArgs e) {
 			btnSelectComponent_Click(sender, e);
 		}
+
+		private void txtRefDes_KeyPress(object sender, KeyPressEventArgs e) {
+			if (e.KeyChar == (char)Keys.Enter)
+				btnRefDesAdd_Click(sender, null);
+		}
 	}
 }
