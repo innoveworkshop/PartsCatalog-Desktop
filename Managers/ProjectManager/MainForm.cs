@@ -42,11 +42,19 @@ namespace ProjectManager {
 		public void PopulateProjectsList(Project selected) {
 			projects.Clear();
 			new Project().List(projects);
-			PopulateBOMItemGroup(null);
+			PopulateProjectGroup(null, false);
 
-			// Select a project if supplied.
-			if (selected != null)
-				lstProjects.SelectedValue = selected.ID;
+			// Select the first item just in case.
+			lstProjects.SelectedIndex = -1;
+			if (selected == null) {
+				if (projects.Count > 0)
+					lstProjects.SelectedIndex = 0;
+
+				return;
+			}
+
+			// Select the supplied project.
+			lstProjects.SelectedValue = selected.ID;
 		}
 
 		/// <summary>
@@ -190,10 +198,21 @@ namespace ProjectManager {
 			// Check if we are deselecting a BOM item.
 			if (item == null) {
 				// Disable the controls that are not useful.
+				btnSelectComponent.Enabled = false;
+				txtComponentValue.Enabled = false;
+				lstRefDes.Enabled = false;
+				txtRefDes.Enabled = false;
+				btnRefDesAdd.Enabled = false;
+				btnRefDesRename.Enabled = false;
+				btnRefDesRemove.Enabled = false;
+				btnRefDesClear.Enabled = false;
+				chkComponentPopulate.Enabled = false;
 				btnItemRemove.Enabled = false;
 				btnItemSave.Enabled = false;
+
+				// Reset some values.
+				chkComponentPopulate.Checked = false;
 				txtComponentValue.Text = "";
-				chkComponentPopulate.Checked = true;
 
 				return;
 			}
@@ -209,6 +228,13 @@ namespace ProjectManager {
 			}
 
 			// Enable the controls that are now useful.
+			btnSelectComponent.Enabled = true;
+			txtComponentValue.Enabled = true;
+			lstRefDes.Enabled = true;
+			txtRefDes.Enabled = true;
+			btnRefDesAdd.Enabled = true;
+			btnRefDesClear.Enabled = true;
+			chkComponentPopulate.Enabled = true;
 			btnItemRemove.Enabled = true;
 			btnItemSave.Enabled = true;
 		}
