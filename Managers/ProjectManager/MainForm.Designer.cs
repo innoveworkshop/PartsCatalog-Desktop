@@ -341,7 +341,7 @@ namespace ProjectManager {
 			this.lstRefDes.FormattingEnabled = true;
 			this.lstRefDes.Location = new System.Drawing.Point(247, 146);
 			this.lstRefDes.Name = "lstRefDes";
-			this.lstRefDes.Size = new System.Drawing.Size(79, 212);
+			this.lstRefDes.Size = new System.Drawing.Size(79, 225);
 			this.lstRefDes.Sorted = true;
 			this.lstRefDes.TabIndex = 18;
 			this.lstRefDes.SelectedIndexChanged += new System.EventHandler(this.lstRefDes_SelectedIndexChanged);
@@ -407,7 +407,7 @@ namespace ProjectManager {
 			this.lstBOMItems.FormattingEnabled = true;
 			this.lstBOMItems.Location = new System.Drawing.Point(10, 16);
 			this.lstBOMItems.Name = "lstBOMItems";
-			this.lstBOMItems.Size = new System.Drawing.Size(231, 342);
+			this.lstBOMItems.Size = new System.Drawing.Size(231, 355);
 			this.lstBOMItems.TabIndex = 2;
 			this.lstBOMItems.SelectedIndexChanged += new System.EventHandler(this.lstBOMItems_SelectedIndexChanged);
 			// 
