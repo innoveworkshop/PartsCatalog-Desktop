@@ -81,6 +81,9 @@ namespace ProjectManager {
 				// Disable the controls that are not useful.
 				btnProjectSave.Enabled = false;
 				btnProjectRemove.Enabled = false;
+				projectToolStripMenuItem.Enabled = false;
+
+				// Reset some fields.
 				lblProjectID.Text = "";
 				txtProjectName.Text = "";
 				txtProjectRevision.Text = "";
@@ -107,6 +110,7 @@ namespace ProjectManager {
 			// Enable the controls that are now useful.
 			btnProjectSave.Enabled = true;
 			btnProjectRemove.Enabled = true;
+			projectToolStripMenuItem.Enabled = true;
 
 			// Populate the BOM list.
 			PopulateProjectBOMList(project, null, retrieveProject);
@@ -129,6 +133,7 @@ namespace ProjectManager {
 				btnItemAdd.Enabled = false;
 				btnItemRemove.Enabled = false;
 				btnItemSave.Enabled = false;
+				bOMItemToolStripMenuItem.Enabled = false;
 
 				return;
 			}
@@ -160,6 +165,7 @@ namespace ProjectManager {
 
 			// Enable the controls that are now useful.
 			btnItemAdd.Enabled = true;
+			bOMItemToolStripMenuItem.Enabled = true;
 		}
 
 		/// <summary>
@@ -484,6 +490,22 @@ namespace ProjectManager {
 				return;
 
 			DeleteProject(project);
+		}
+
+		private void exitToolStripMenuItem_Click(object sender, EventArgs e) {
+			Close();
+		}
+
+		private void refreshProjectsToolStripMenuItem_Click(object sender, EventArgs e) {
+			PopulateProjectsList();
+		}
+
+		private void refreshComponentsToolStripMenuItem_Click(object sender, EventArgs e) {
+			PopulateProjectGroup((Project)lstProjects.SelectedItem, true);
+		}
+
+		private void selectComponentToolStripMenuItem_Click(object sender, EventArgs e) {
+			btnSelectComponent_Click(sender, e);
 		}
 	}
 }

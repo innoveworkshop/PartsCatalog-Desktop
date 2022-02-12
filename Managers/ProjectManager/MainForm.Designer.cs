@@ -57,15 +57,25 @@ namespace ProjectManager {
 			this.lstBOMItems = new System.Windows.Forms.ListBox();
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
 			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
+			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+			this.refreshProjectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshComponentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.bOMItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.selectComponentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.grpProject.SuspendLayout();
 			this.grpComponents.SuspendLayout();
 			this.stpStatus.SuspendLayout();
+			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(7, 9);
+			this.label1.Location = new System.Drawing.Point(7, 24);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(45, 13);
 			this.label1.TabIndex = 0;
@@ -76,9 +86,9 @@ namespace ProjectManager {
 			this.lstProjects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
 						| System.Windows.Forms.AnchorStyles.Left)));
 			this.lstProjects.FormattingEnabled = true;
-			this.lstProjects.Location = new System.Drawing.Point(10, 25);
+			this.lstProjects.Location = new System.Drawing.Point(10, 40);
 			this.lstProjects.Name = "lstProjects";
-			this.lstProjects.Size = new System.Drawing.Size(231, 225);
+			this.lstProjects.Size = new System.Drawing.Size(231, 212);
 			this.lstProjects.TabIndex = 1;
 			this.lstProjects.SelectedIndexChanged += new System.EventHandler(this.lstProjects_SelectedIndexChanged);
 			// 
@@ -211,9 +221,9 @@ namespace ProjectManager {
 			this.grpComponents.Controls.Add(this.btnItemRemove);
 			this.grpComponents.Controls.Add(this.btnItemAdd);
 			this.grpComponents.Controls.Add(this.lstBOMItems);
-			this.grpComponents.Location = new System.Drawing.Point(250, 9);
+			this.grpComponents.Location = new System.Drawing.Point(250, 24);
 			this.grpComponents.Name = "grpComponents";
-			this.grpComponents.Size = new System.Drawing.Size(431, 426);
+			this.grpComponents.Size = new System.Drawing.Size(431, 411);
 			this.grpComponents.TabIndex = 3;
 			this.grpComponents.TabStop = false;
 			this.grpComponents.Text = "Components";
@@ -224,7 +234,7 @@ namespace ProjectManager {
 			this.chkComponentPopulate.AutoSize = true;
 			this.chkComponentPopulate.Checked = true;
 			this.chkComponentPopulate.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chkComponentPopulate.Location = new System.Drawing.Point(343, 369);
+			this.chkComponentPopulate.Location = new System.Drawing.Point(343, 354);
 			this.chkComponentPopulate.Name = "chkComponentPopulate";
 			this.chkComponentPopulate.Size = new System.Drawing.Size(68, 17);
 			this.chkComponentPopulate.TabIndex = 28;
@@ -262,7 +272,7 @@ namespace ProjectManager {
 			// 
 			// btnSelectComponent
 			// 
-			this.btnSelectComponent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnSelectComponent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnSelectComponent.Location = new System.Drawing.Point(247, 62);
 			this.btnSelectComponent.Name = "btnSelectComponent";
 			this.btnSelectComponent.Size = new System.Drawing.Size(175, 23);
@@ -307,7 +317,7 @@ namespace ProjectManager {
 			// btnItemSave
 			// 
 			this.btnItemSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnItemSave.Location = new System.Drawing.Point(247, 392);
+			this.btnItemSave.Location = new System.Drawing.Point(247, 377);
 			this.btnItemSave.Name = "btnItemSave";
 			this.btnItemSave.Size = new System.Drawing.Size(175, 23);
 			this.btnItemSave.TabIndex = 20;
@@ -325,11 +335,12 @@ namespace ProjectManager {
 			// 
 			// lstRefDes
 			// 
-			this.lstRefDes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.lstRefDes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Right)));
 			this.lstRefDes.FormattingEnabled = true;
 			this.lstRefDes.Location = new System.Drawing.Point(247, 146);
 			this.lstRefDes.Name = "lstRefDes";
-			this.lstRefDes.Size = new System.Drawing.Size(79, 238);
+			this.lstRefDes.Size = new System.Drawing.Size(79, 212);
 			this.lstRefDes.Sorted = true;
 			this.lstRefDes.TabIndex = 18;
 			this.lstRefDes.SelectedIndexChanged += new System.EventHandler(this.lstRefDes_SelectedIndexChanged);
@@ -367,7 +378,7 @@ namespace ProjectManager {
 			// 
 			this.btnItemRemove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.btnItemRemove.Location = new System.Drawing.Point(129, 392);
+			this.btnItemRemove.Location = new System.Drawing.Point(129, 377);
 			this.btnItemRemove.Name = "btnItemRemove";
 			this.btnItemRemove.Size = new System.Drawing.Size(112, 23);
 			this.btnItemRemove.TabIndex = 12;
@@ -379,7 +390,7 @@ namespace ProjectManager {
 			// 
 			this.btnItemAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.btnItemAdd.Location = new System.Drawing.Point(10, 392);
+			this.btnItemAdd.Location = new System.Drawing.Point(10, 377);
 			this.btnItemAdd.Name = "btnItemAdd";
 			this.btnItemAdd.Size = new System.Drawing.Size(112, 23);
 			this.btnItemAdd.TabIndex = 11;
@@ -395,7 +406,7 @@ namespace ProjectManager {
 			this.lstBOMItems.FormattingEnabled = true;
 			this.lstBOMItems.Location = new System.Drawing.Point(10, 16);
 			this.lstBOMItems.Name = "lstBOMItems";
-			this.lstBOMItems.Size = new System.Drawing.Size(231, 368);
+			this.lstBOMItems.Size = new System.Drawing.Size(231, 342);
 			this.lstBOMItems.TabIndex = 2;
 			this.lstBOMItems.SelectedIndexChanged += new System.EventHandler(this.lstBOMItems_SelectedIndexChanged);
 			// 
@@ -415,18 +426,91 @@ namespace ProjectManager {
 			this.tslServer.Size = new System.Drawing.Size(74, 17);
 			this.tslServer.Text = "Server Name";
 			// 
+			// menuStrip1
+			// 
+			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.projectToolStripMenuItem,
+            this.bOMItemToolStripMenuItem});
+			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+			this.menuStrip1.Name = "menuStrip1";
+			this.menuStrip1.Size = new System.Drawing.Size(691, 24);
+			this.menuStrip1.TabIndex = 5;
+			this.menuStrip1.Text = "menuStrip1";
+			// 
+			// fileToolStripMenuItem
+			// 
+			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshProjectsToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.exitToolStripMenuItem});
+			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+			this.fileToolStripMenuItem.Text = "&File";
+			// 
+			// projectToolStripMenuItem
+			// 
+			this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.refreshComponentsToolStripMenuItem});
+			this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
+			this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+			this.projectToolStripMenuItem.Text = "&Project";
+			// 
+			// exitToolStripMenuItem
+			// 
+			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+			this.exitToolStripMenuItem.Text = "E&xit";
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(155, 6);
+			// 
+			// refreshProjectsToolStripMenuItem
+			// 
+			this.refreshProjectsToolStripMenuItem.Name = "refreshProjectsToolStripMenuItem";
+			this.refreshProjectsToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+			this.refreshProjectsToolStripMenuItem.Text = "&Refresh Projects";
+			this.refreshProjectsToolStripMenuItem.Click += new System.EventHandler(this.refreshProjectsToolStripMenuItem_Click);
+			// 
+			// refreshComponentsToolStripMenuItem
+			// 
+			this.refreshComponentsToolStripMenuItem.Name = "refreshComponentsToolStripMenuItem";
+			this.refreshComponentsToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+			this.refreshComponentsToolStripMenuItem.Text = "&Refresh Components";
+			this.refreshComponentsToolStripMenuItem.Click += new System.EventHandler(this.refreshComponentsToolStripMenuItem_Click);
+			// 
+			// bOMItemToolStripMenuItem
+			// 
+			this.bOMItemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectComponentToolStripMenuItem});
+			this.bOMItemToolStripMenuItem.Name = "bOMItemToolStripMenuItem";
+			this.bOMItemToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+			this.bOMItemToolStripMenuItem.Text = "BOM &Item";
+			// 
+			// selectComponentToolStripMenuItem
+			// 
+			this.selectComponentToolStripMenuItem.Name = "selectComponentToolStripMenuItem";
+			this.selectComponentToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+			this.selectComponentToolStripMenuItem.Text = "Select &Component...";
+			this.selectComponentToolStripMenuItem.Click += new System.EventHandler(this.selectComponentToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(691, 465);
 			this.Controls.Add(this.stpStatus);
+			this.Controls.Add(this.menuStrip1);
 			this.Controls.Add(this.grpComponents);
 			this.Controls.Add(this.grpProject);
 			this.Controls.Add(this.lstProjects);
 			this.Controls.Add(this.label1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MainMenuStrip = this.menuStrip1;
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "Project Manager";
@@ -437,6 +521,8 @@ namespace ProjectManager {
 			this.grpComponents.PerformLayout();
 			this.stpStatus.ResumeLayout(false);
 			this.stpStatus.PerformLayout();
+			this.menuStrip1.ResumeLayout(false);
+			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -477,6 +563,15 @@ namespace ProjectManager {
 		private System.Windows.Forms.CheckBox chkComponentPopulate;
 		private System.Windows.Forms.StatusStrip stpStatus;
 		private System.Windows.Forms.ToolStripStatusLabel tslServer;
+		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem projectToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem refreshProjectsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem refreshComponentsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem bOMItemToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem selectComponentToolStripMenuItem;
 	}
 }
 
