@@ -225,12 +225,26 @@ namespace OrderImporter.Views {
 			tsbImport.Enabled = !CurrentOrderItem.IsPersistent();
 			tsbViewComponent.Enabled = CurrentOrderItem.IsPersistent();
 			tsbCheckDatabase.Enabled = !CurrentOrderItem.IsPersistent();
+			tsbRefresh.Enabled = !CurrentOrderItem.IsPersistent();
 			panFields.Enabled = !CurrentOrderItem.IsPersistent();
 			panProperties.Enabled = !CurrentOrderItem.IsPersistent();
 			grdProperties.Enabled = !CurrentOrderItem.IsPersistent();
 			foreach (Control ctrl in panFields.Controls) {
 				ctrl.Enabled = !CurrentOrderItem.IsPersistent();
 			}
+		}
+
+		/// <summary>
+		/// Populates the form with the currently selected component.
+		/// </summary>
+		private void PopulateComponent() {
+			dlgLoading = new WebLoadingDialog();
+			dlgLoading.ShowFetching(this, "component '" + CurrentOrderItem.Name + "'");
+
+			commonComponentControls.AssociatedComponent = CurrentOrderItem;
+			UpdateItemView();
+
+			dlgLoading.Close();
 		}
 
 		/// <summary>
@@ -249,13 +263,7 @@ namespace OrderImporter.Views {
 		}
 
 		private void bindingSource_CurrentChanged(object sender, EventArgs e) {
-			dlgLoading = new WebLoadingDialog();
-			dlgLoading.ShowFetching(this, "component '" + CurrentOrderItem.Name + "'");
-
-			commonComponentControls.AssociatedComponent = CurrentOrderItem;
-			UpdateItemView();
-
-			dlgLoading.Close();
+			PopulateComponent();
 		}
 
 		private void tsbImport_Click(object sender, EventArgs e) {
@@ -272,6 +280,10 @@ namespace OrderImporter.Views {
 
 		private void tsbCheckDatabase_Click(object sender, EventArgs e) {
 			CheckDatabaseAndMerge(CurrentOrderItem, true);
+		}
+
+		private void tsbRefresh_Click(object sender, EventArgs e) {
+			commonComponentControls.PopulateWithComponent(true);
 		}
 	}
 }
