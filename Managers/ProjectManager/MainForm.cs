@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using PartsCatalog.Models;
+using PartsCatalog.DesktopForms.Views;
 
 namespace ProjectManager {
 	/// <summary>
@@ -266,6 +267,19 @@ namespace ProjectManager {
 		}
 
 		/// <summary>
+		/// Displays a dialog to let the user select a component and populates
+		/// it in the form if a selection was made.
+		/// </summary>
+		public void SelectComponent() {
+			ComponentSearchForm frmSearch = new ComponentSearchForm();
+			DialogResult result = frmSearch.ShowDialogSelection(this);
+
+			// Did the user select anything for us to use?
+			if (result == DialogResult.OK)
+				PopulateComponent(frmSearch.SelectedComponent);
+		}
+
+		/// <summary>
 		/// Creates a new project.
 		/// </summary>
 		public void AddProject() {
@@ -448,8 +462,7 @@ namespace ProjectManager {
 		}
 
 		private void btnSelectComponent_Click(object sender, EventArgs e) {
-			// TODO: Change this. Just for testing.
-			PopulateComponent(new PartsCatalog.Models.Component(50));
+			SelectComponent();
 		}
 
 		private void btnItemSave_Click(object sender, EventArgs e) {

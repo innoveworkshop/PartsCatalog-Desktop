@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageManager", "PackageMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManager", "ProjectManager\ProjectManager.csproj", "{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopForms", "..\Commons\DesktopForms\DesktopForms.csproj", "{BE318A09-8BD4-49C6-8998-D943B27963B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE318A09-8BD4-49C6-8998-D943B27963B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE318A09-8BD4-49C6-8998-D943B27963B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE318A09-8BD4-49C6-8998-D943B27963B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE318A09-8BD4-49C6-8998-D943B27963B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
