@@ -104,5 +104,21 @@ namespace PartsCatalog.Browsers.Views {
 			gridHelper.Clear();
 			RefreshCategoriesList();
 		}
+
+		private void searchToolStripMenuItem_Click(object sender, EventArgs e) {
+			new ComponentSearchForm().Show(this);
+		}
+
+		private void categoriesToolStripMenuItem_Click(object sender, EventArgs e) {
+			new CategoryManager.MainForm().ShowDialog(this);
+		}
+
+		private void packagesToolStripMenuItem_Click(object sender, EventArgs e) {
+			new PackageManager.MainForm().ShowDialog(this);
+		}
+
+		private void projectsToolStripMenuItem_Click(object sender, EventArgs e) {
+			new ProjectManager.MainForm().ShowDialog(this);
+		}
 	}
 }

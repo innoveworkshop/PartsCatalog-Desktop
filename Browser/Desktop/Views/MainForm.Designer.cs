@@ -23,11 +23,16 @@ namespace PartsCatalog.Browsers.Views {
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.stpStatus = new System.Windows.Forms.StatusStrip();
 			this.tslServer = new System.Windows.Forms.ToolStripStatusLabel();
 			this.stpMenu = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ctnMainSplit = new System.Windows.Forms.SplitContainer();
 			this.cntParametricSplit = new System.Windows.Forms.SplitContainer();
@@ -36,8 +41,11 @@ namespace PartsCatalog.Browsers.Views {
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.grdResults = new System.Windows.Forms.DataGridView();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.packagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stpStatus.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
@@ -68,7 +76,9 @@ namespace PartsCatalog.Browsers.Views {
 			// stpMenu
 			// 
 			this.stpMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.manageToolStripMenuItem,
+            this.searchToolStripMenuItem});
 			this.stpMenu.Location = new System.Drawing.Point(0, 0);
 			this.stpMenu.Name = "stpMenu";
 			this.stpMenu.Size = new System.Drawing.Size(769, 24);
@@ -85,10 +95,22 @@ namespace PartsCatalog.Browsers.Views {
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "&File";
 			// 
+			// refreshToolStripMenuItem
+			// 
+			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
+			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+			this.refreshToolStripMenuItem.Text = "&Refresh";
+			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(110, 6);
+			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
@@ -187,26 +209,76 @@ namespace PartsCatalog.Browsers.Views {
 						| System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
 			this.grdResults.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.grdResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.grdResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.grdResults.DefaultCellStyle = dataGridViewCellStyle2;
 			this.grdResults.Location = new System.Drawing.Point(3, 3);
 			this.grdResults.Name = "grdResults";
 			this.grdResults.ReadOnly = true;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.grdResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this.grdResults.RowHeadersVisible = false;
 			this.grdResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.grdResults.Size = new System.Drawing.Size(534, 489);
 			this.grdResults.TabIndex = 0;
 			// 
-			// toolStripMenuItem1
+			// manageToolStripMenuItem
 			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+			this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.categoriesToolStripMenuItem,
+            this.packagesToolStripMenuItem,
+            this.projectsToolStripMenuItem});
+			this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
+			this.manageToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+			this.manageToolStripMenuItem.Text = "&Manage";
 			// 
-			// refreshToolStripMenuItem
+			// searchToolStripMenuItem
 			// 
-			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.refreshToolStripMenuItem.Text = "&Refresh";
-			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
+			this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+			this.searchToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+			this.searchToolStripMenuItem.Text = "&Search...";
+			this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
+			// 
+			// categoriesToolStripMenuItem
+			// 
+			this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+			this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.categoriesToolStripMenuItem.Text = "&Categories...";
+			this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
+			// 
+			// packagesToolStripMenuItem
+			// 
+			this.packagesToolStripMenuItem.Name = "packagesToolStripMenuItem";
+			this.packagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.packagesToolStripMenuItem.Text = "Pac&kages...";
+			this.packagesToolStripMenuItem.Click += new System.EventHandler(this.packagesToolStripMenuItem_Click);
+			// 
+			// projectsToolStripMenuItem
+			// 
+			this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
+			this.projectsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.projectsToolStripMenuItem.Text = "&Projects...";
+			this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -253,6 +325,11 @@ namespace PartsCatalog.Browsers.Views {
 		private System.Windows.Forms.ToolStripStatusLabel tslServer;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem manageToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem packagesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
 
 	}
 }

@@ -78,6 +78,18 @@
       <Project>{7EF4491D-DF78-42D0-9339-28F84C8C1560}</Project>
       <Name>PartsCatalog</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Managers\CategoryManager\CategoryManager.csproj">
+      <Project>{3C321D26-96D3-4401-9D65-830AD3FC2916}</Project>
+      <Name>CategoryManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Managers\PackageManager\PackageManager.csproj">
+      <Project>{DF3F79A3-0FBB-4BD0-A1EB-F618F8A7F820}</Project>
+      <Name>PackageManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Managers\ProjectManager\ProjectManager.csproj">
+      <Project>{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}</Project>
+      <Name>ProjectManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="box_white.ico" />
