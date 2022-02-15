@@ -120,5 +120,9 @@ namespace PartsCatalog.Browsers.Views {
 		private void projectsToolStripMenuItem_Click(object sender, EventArgs e) {
 			new ProjectManager.MainForm().ShowDialog(this);
 		}
+
+		private void importOrderToolStripMenuItem_Click(object sender, EventArgs e) {
+			new OrderImporter.Views.OrderPickerForm().Show(this);
+		}
 	}
 }

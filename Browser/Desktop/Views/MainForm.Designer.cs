@@ -34,6 +34,11 @@ namespace PartsCatalog.Browsers.Views {
 			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.packagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ctnMainSplit = new System.Windows.Forms.SplitContainer();
 			this.cntParametricSplit = new System.Windows.Forms.SplitContainer();
 			this.lstCategories = new System.Windows.Forms.ListBox();
@@ -41,11 +46,8 @@ namespace PartsCatalog.Browsers.Views {
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.grdResults = new System.Windows.Forms.DataGridView();
-			this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.packagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.importOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stpStatus.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
@@ -78,6 +80,7 @@ namespace PartsCatalog.Browsers.Views {
 			this.stpMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.manageToolStripMenuItem,
+            this.utilitiesToolStripMenuItem,
             this.searchToolStripMenuItem});
 			this.stpMenu.Location = new System.Drawing.Point(0, 0);
 			this.stpMenu.Name = "stpMenu";
@@ -113,6 +116,44 @@ namespace PartsCatalog.Browsers.Views {
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			// 
+			// manageToolStripMenuItem
+			// 
+			this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.categoriesToolStripMenuItem,
+            this.packagesToolStripMenuItem,
+            this.projectsToolStripMenuItem});
+			this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
+			this.manageToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+			this.manageToolStripMenuItem.Text = "&Manage";
+			// 
+			// categoriesToolStripMenuItem
+			// 
+			this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
+			this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.categoriesToolStripMenuItem.Text = "&Categories...";
+			this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
+			// 
+			// packagesToolStripMenuItem
+			// 
+			this.packagesToolStripMenuItem.Name = "packagesToolStripMenuItem";
+			this.packagesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.packagesToolStripMenuItem.Text = "Pac&kages...";
+			this.packagesToolStripMenuItem.Click += new System.EventHandler(this.packagesToolStripMenuItem_Click);
+			// 
+			// projectsToolStripMenuItem
+			// 
+			this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
+			this.projectsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+			this.projectsToolStripMenuItem.Text = "&Projects...";
+			this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
+			// 
+			// searchToolStripMenuItem
+			// 
+			this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+			this.searchToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+			this.searchToolStripMenuItem.Text = "&Search...";
+			this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
 			// 
 			// ctnMainSplit
 			// 
@@ -242,43 +283,20 @@ namespace PartsCatalog.Browsers.Views {
 			this.grdResults.Size = new System.Drawing.Size(534, 489);
 			this.grdResults.TabIndex = 0;
 			// 
-			// manageToolStripMenuItem
+			// utilitiesToolStripMenuItem
 			// 
-			this.manageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.categoriesToolStripMenuItem,
-            this.packagesToolStripMenuItem,
-            this.projectsToolStripMenuItem});
-			this.manageToolStripMenuItem.Name = "manageToolStripMenuItem";
-			this.manageToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-			this.manageToolStripMenuItem.Text = "&Manage";
+			this.utilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importOrderToolStripMenuItem});
+			this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
+			this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+			this.utilitiesToolStripMenuItem.Text = "&Utilities";
 			// 
-			// searchToolStripMenuItem
+			// importOrderToolStripMenuItem
 			// 
-			this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-			this.searchToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-			this.searchToolStripMenuItem.Text = "&Search...";
-			this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-			// 
-			// categoriesToolStripMenuItem
-			// 
-			this.categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-			this.categoriesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.categoriesToolStripMenuItem.Text = "&Categories...";
-			this.categoriesToolStripMenuItem.Click += new System.EventHandler(this.categoriesToolStripMenuItem_Click);
-			// 
-			// packagesToolStripMenuItem
-			// 
-			this.packagesToolStripMenuItem.Name = "packagesToolStripMenuItem";
-			this.packagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.packagesToolStripMenuItem.Text = "Pac&kages...";
-			this.packagesToolStripMenuItem.Click += new System.EventHandler(this.packagesToolStripMenuItem_Click);
-			// 
-			// projectsToolStripMenuItem
-			// 
-			this.projectsToolStripMenuItem.Name = "projectsToolStripMenuItem";
-			this.projectsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.projectsToolStripMenuItem.Text = "&Projects...";
-			this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
+			this.importOrderToolStripMenuItem.Name = "importOrderToolStripMenuItem";
+			this.importOrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.importOrderToolStripMenuItem.Text = "&Import Order...";
+			this.importOrderToolStripMenuItem.Click += new System.EventHandler(this.importOrderToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -330,6 +348,8 @@ namespace PartsCatalog.Browsers.Views {
 		private System.Windows.Forms.ToolStripMenuItem categoriesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem packagesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem utilitiesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem importOrderToolStripMenuItem;
 
 	}
 }

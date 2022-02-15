@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageManager", "..\Manage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectManager", "..\Managers\ProjectManager\ProjectManager.csproj", "{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderImporter", "..\OrderImporter\OrderImporter\OrderImporter.csproj", "{5821C98A-BF3C-4179-BF1E-A97D6CB29698}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5821C98A-BF3C-4179-BF1E-A97D6CB29698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5821C98A-BF3C-4179-BF1E-A97D6CB29698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5821C98A-BF3C-4179-BF1E-A97D6CB29698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5821C98A-BF3C-4179-BF1E-A97D6CB29698}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

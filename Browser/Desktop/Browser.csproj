@@ -90,6 +90,10 @@
       <Project>{107DB485-5EA8-4B85-8E68-E5C009C3C7AE}</Project>
       <Name>ProjectManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\OrderImporter\OrderImporter\OrderImporter.csproj">
+      <Project>{5821C98A-BF3C-4179-BF1E-A97D6CB29698}</Project>
+      <Name>OrderImporter</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="box_white.ico" />
