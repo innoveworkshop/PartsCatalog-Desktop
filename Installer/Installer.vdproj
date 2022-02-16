@@ -166,6 +166,12 @@
         "Entry"
         {
         "MsmKey" = "8:_E5B4C895DF19A7862AE34E784927833C"
+        "OwnerKey" = "8:_48AE612ACB5824F40DD9F2AFD62D8A1D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E5B4C895DF19A7862AE34E784927833C"
         "OwnerKey" = "8:_4D1BB0A347AE4B428B40508E102F32D3"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -734,14 +740,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:PartsCatalog"
-        "ProductCode" = "8:{0C8F1A90-9421-4F38-A412-E602C03FF4BE}"
-        "PackageCode" = "8:{BBD23791-5C58-4D03-A79A-1F5C22D36C9D}"
+        "ProductCode" = "8:{C2715133-8693-42E9-A142-055AF48D6964}"
+        "PackageCode" = "8:{172DE77D-D6B5-400E-A000-03A798940CCE}"
         "UpgradeCode" = "8:{E62FD33E-7AB9-4484-93F5-D027E300D352}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.1.1"
         "Manufacturer" = "8:Innove Workshop"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
