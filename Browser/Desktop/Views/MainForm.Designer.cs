@@ -38,6 +38,8 @@ namespace PartsCatalog.Browsers.Views {
 			this.categoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.packagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.importOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.ctnMainSplit = new System.Windows.Forms.SplitContainer();
 			this.cntParametricSplit = new System.Windows.Forms.SplitContainer();
@@ -46,8 +48,7 @@ namespace PartsCatalog.Browsers.Views {
 			this.lstSubCategories = new System.Windows.Forms.ListBox();
 			this.lblSubCategories = new System.Windows.Forms.Label();
 			this.grdResults = new System.Windows.Forms.DataGridView();
-			this.utilitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.importOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.newComponentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.stpStatus.SuspendLayout();
 			this.stpMenu.SuspendLayout();
 			this.ctnMainSplit.Panel1.SuspendLayout();
@@ -91,6 +92,7 @@ namespace PartsCatalog.Browsers.Views {
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newComponentToolStripMenuItem,
             this.refreshToolStripMenuItem,
             this.toolStripMenuItem1,
             this.exitToolStripMenuItem});
@@ -101,19 +103,19 @@ namespace PartsCatalog.Browsers.Views {
 			// refreshToolStripMenuItem
 			// 
 			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
 			this.refreshToolStripMenuItem.Text = "&Refresh";
 			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(110, 6);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(171, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
 			this.exitToolStripMenuItem.Text = "E&xit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
@@ -147,6 +149,21 @@ namespace PartsCatalog.Browsers.Views {
 			this.projectsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
 			this.projectsToolStripMenuItem.Text = "&Projects...";
 			this.projectsToolStripMenuItem.Click += new System.EventHandler(this.projectsToolStripMenuItem_Click);
+			// 
+			// utilitiesToolStripMenuItem
+			// 
+			this.utilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importOrderToolStripMenuItem});
+			this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
+			this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+			this.utilitiesToolStripMenuItem.Text = "&Utilities";
+			// 
+			// importOrderToolStripMenuItem
+			// 
+			this.importOrderToolStripMenuItem.Name = "importOrderToolStripMenuItem";
+			this.importOrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.importOrderToolStripMenuItem.Text = "&Import Order...";
+			this.importOrderToolStripMenuItem.Click += new System.EventHandler(this.importOrderToolStripMenuItem_Click);
 			// 
 			// searchToolStripMenuItem
 			// 
@@ -283,20 +300,12 @@ namespace PartsCatalog.Browsers.Views {
 			this.grdResults.Size = new System.Drawing.Size(534, 489);
 			this.grdResults.TabIndex = 0;
 			// 
-			// utilitiesToolStripMenuItem
+			// newComponentToolStripMenuItem
 			// 
-			this.utilitiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importOrderToolStripMenuItem});
-			this.utilitiesToolStripMenuItem.Name = "utilitiesToolStripMenuItem";
-			this.utilitiesToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-			this.utilitiesToolStripMenuItem.Text = "&Utilities";
-			// 
-			// importOrderToolStripMenuItem
-			// 
-			this.importOrderToolStripMenuItem.Name = "importOrderToolStripMenuItem";
-			this.importOrderToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.importOrderToolStripMenuItem.Text = "&Import Order...";
-			this.importOrderToolStripMenuItem.Click += new System.EventHandler(this.importOrderToolStripMenuItem_Click);
+			this.newComponentToolStripMenuItem.Name = "newComponentToolStripMenuItem";
+			this.newComponentToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+			this.newComponentToolStripMenuItem.Text = "&New Component...";
+			this.newComponentToolStripMenuItem.Click += new System.EventHandler(this.newComponentToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -350,6 +359,7 @@ namespace PartsCatalog.Browsers.Views {
 		private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem utilitiesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem importOrderToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem newComponentToolStripMenuItem;
 
 	}
 }

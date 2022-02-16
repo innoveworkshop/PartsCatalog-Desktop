@@ -124,5 +124,9 @@ namespace PartsCatalog.Browsers.Views {
 		private void importOrderToolStripMenuItem_Click(object sender, EventArgs e) {
 			new OrderImporter.Views.OrderPickerForm().Show(this);
 		}
+
+		private void newComponentToolStripMenuItem_Click(object sender, EventArgs e) {
+			new ComponentForm().Show(this);
+		}
 	}
 }
